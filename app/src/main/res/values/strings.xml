@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">IStud</string>
+    <string name="app_name">iStud</string>
+    
+    <!-- Strings related to login -->
+    <string name="prompt_email">E-mail</string>
+    <string name="prompt_password">Parola</string>
+    <string name="action_sign_in">Intra in aplicatie</string>
+    <string name="action_sign_in_short">Logare</string>
+    <string name="error_invalid_email">Adresa invalida </string>
+    <string name="error_invalid_password">Parola prea scurta</string>
+    <string name="error_incorrect_password">Parola gresita</string>
+    <string name="error_field_required">Acest camp este obligatoriu</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
 </resources>
