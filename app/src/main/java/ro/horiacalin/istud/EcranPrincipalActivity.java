@@ -19,6 +19,7 @@ public class EcranPrincipalActivity extends AppCompatActivity {
 
     public ViewPager viewPager;
     public ViewPageAdapter viewPageAdapter;
+    public final int numarFragmente = 2;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class EcranPrincipalActivity extends AppCompatActivity {
         setContentView(R.layout.ecran_principal);
 
         viewPager = (ViewPager) findViewById(R.id.pager);
-        viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager(), 2);
+        viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager(), numarFragmente);
         viewPager.setAdapter(viewPageAdapter);
 
         final NavigationTabBar navigationTabBar = (NavigationTabBar) findViewById(R.id.ntb);
