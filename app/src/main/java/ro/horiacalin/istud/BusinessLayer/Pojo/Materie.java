@@ -1,17 +1,28 @@
 package ro.horiacalin.istud.BusinessLayer.Pojo;
 
+import android.support.v7.app.AppCompatActivity;
+
+import java.io.Serializable;
+
 /**
  * Created by horiaacalin on 05/03/2017.
  */
 
-public class Materie {
+@SuppressWarnings("serial")
+public class Materie implements Serializable{
     private String mName;
-    private int numarCredite;
-    private String numeTitular;
+    private int mNumarCredite;
+    private String mNumeTitular;
 
-    public Materie(String name) {
+    public Materie(String name){
+
         mName = name;
+    }
 
+    public Materie(String name, int numarCredite, String numeTitular) {
+        mName = name;
+        mNumarCredite = numarCredite;
+        mNumeTitular = numeTitular;
     }
 
     public String getName() {
@@ -19,11 +30,11 @@ public class Materie {
     }
 
     public int getNumarCredite(){
-        return numarCredite;
+        return mNumarCredite;
     }
 
     public String getNumeTitular(){
-        return numeTitular;
+        return mNumeTitular;
     }
 
     private static int lastMaterieID = 0;

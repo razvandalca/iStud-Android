@@ -27,6 +27,7 @@ public class FragmentNote extends android.support.v4.app.Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    public ArrayList<Materie> materiiLista= new ArrayList<>();
 
     public FragmentNote(){
 
@@ -50,6 +51,8 @@ public class FragmentNote extends android.support.v4.app.Fragment {
 
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,7 +65,7 @@ public class FragmentNote extends android.support.v4.app.Fragment {
         recyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-        ArrayList<Materie> materiiLista= new ArrayList<>();
+
         materiiLista.add(new Materie("ASC"));
         materiiLista.add(new Materie("TEST2"));
         materiiLista.add(new Materie("TEST3"));
@@ -74,12 +77,14 @@ public class FragmentNote extends android.support.v4.app.Fragment {
         materiiLista.add(new Materie("TEST3"));
         materiiLista.add(new Materie("TEST4"));
         materiiLista.add(new Materie("TEST5"));
-        materiiLista.add(new Materie("TEST6"));       materiiLista.add(new Materie("ASC"));
+        materiiLista.add(new Materie("TEST6"));
+        materiiLista.add(new Materie("ASC"));
         materiiLista.add(new Materie("TEST2"));
         materiiLista.add(new Materie("TEST3"));
         materiiLista.add(new Materie("TEST4"));
         materiiLista.add(new Materie("TEST5"));
-        materiiLista.add(new Materie("TEST6"));       materiiLista.add(new Materie("ASC"));
+        materiiLista.add(new Materie("TEST6"));
+        materiiLista.add(new Materie("ASC"));
         materiiLista.add(new Materie("TEST2"));
         materiiLista.add(new Materie("TEST3"));
         materiiLista.add(new Materie("TEST4"));
@@ -89,4 +94,5 @@ public class FragmentNote extends android.support.v4.app.Fragment {
         recyclerView.setAdapter(mAdapter);
         return rootView;
     }
+
 }
