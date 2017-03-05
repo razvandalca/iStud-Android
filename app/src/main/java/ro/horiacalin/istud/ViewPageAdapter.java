@@ -25,7 +25,7 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
                 return FragmentCalendar.newInstance("Fragment 1");
 
             case 1:
-                return FragmentCalendar.newInstance("Fragment 2");
+                return FragmentNote.newInstance("Fragment 2");
 
             default:
                 return null;
