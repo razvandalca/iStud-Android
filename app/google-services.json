@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "412815647481",
+    "firebase_url": "https://istudy-57b61.firebaseio.com",
+    "project_id": "istudy-57b61",
+    "storage_bucket": "istudy-57b61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412815647481:android:01208b93eebdff2f",
+        "android_client_info": {
+          "package_name": "ro.horiacalin.istud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412815647481-3r2t61cholm3emov87r1d14mjomqeek2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ro.horiacalin.istud",
+            "certificate_hash": "bb507f4e654f800c52b330d0219eaa8d415f3ab2"
+          }
+        },
+        {
+          "client_id": "412815647481-1qjbd0iun9cllhts7set5gn4j5i0v8in.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmdKK0glylk6mbSbSUPwvDXQymJLuMN18"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "412815647481-1qjbd0iun9cllhts7set5gn4j5i0v8in.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
