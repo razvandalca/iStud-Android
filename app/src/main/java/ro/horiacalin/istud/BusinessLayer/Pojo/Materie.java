@@ -1,6 +1,4 @@
-package ro.horiacalin.istud;
-
-import java.util.ArrayList;
+package ro.horiacalin.istud.BusinessLayer.Pojo;
 
 /**
  * Created by horiaacalin on 05/03/2017.
@@ -30,13 +28,5 @@ public class Materie {
 
     private static int lastMaterieID = 0;
 
-    public static ArrayList<Materie> createContactsList(int numarMaterii) {
-        ArrayList<Materie> materii = new ArrayList<Materie>();
 
-        for (int i = 1; i <= numarMaterii; i++) {
-            materii.add(new Materie("Materie: " + ++lastMaterieID));
-        }
-
-        return materii;
-    }
 }

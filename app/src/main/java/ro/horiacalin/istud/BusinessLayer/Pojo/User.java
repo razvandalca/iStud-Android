@@ -1,4 +1,4 @@
-package ro.horiacalin.istud.Pojo;
+package ro.horiacalin.istud.BusinessLayer.Pojo;
 
 /**
  * Created by Razvan'S PC on 05.03.2017.
@@ -7,4 +7,6 @@ package ro.horiacalin.istud.Pojo;
 public class User {
     private String email;
     private String password;
+
+
 }

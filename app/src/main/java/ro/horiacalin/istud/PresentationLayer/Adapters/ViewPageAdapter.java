@@ -1,8 +1,11 @@
-package ro.horiacalin.istud;
+package ro.horiacalin.istud.PresentationLayer.Adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import ro.horiacalin.istud.PresentationLayer.Controller.FragmentCalendar;
+import ro.horiacalin.istud.PresentationLayer.Controller.FragmentNote;
 
 /**
  * Created by horiaacalin on 26/02/2017.

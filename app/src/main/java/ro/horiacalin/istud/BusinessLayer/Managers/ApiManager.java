@@ -1,13 +1,14 @@
-package ro.horiacalin.istud.Api;
+package ro.horiacalin.istud.BusinessLayer.Managers;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import ro.horiacalin.istud.Constants;
-import ro.horiacalin.istud.Interfaces.CallbackDefaultNetwork;
-import ro.horiacalin.istud.Pojo.User;
+import ro.horiacalin.istud.Api.iStudAPI;
+import ro.horiacalin.istud.BusinessLayer.Interfaces.CallbackDefaultNetwork;
+import ro.horiacalin.istud.BusinessLayer.Constants;
+import ro.horiacalin.istud.BusinessLayer.Pojo.User;
 
 /**
  * Created by Razvan'S PC on 05.03.2017.

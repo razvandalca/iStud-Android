@@ -1,8 +1,7 @@
-package ro.horiacalin.istud;
+package ro.horiacalin.istud.PresentationLayer.Controller;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import java.util.ArrayList;
 
 import devlight.io.library.ntb.NavigationTabBar;
+import ro.horiacalin.istud.R;
+import ro.horiacalin.istud.PresentationLayer.Adapters.ViewPageAdapter;
 
 /**
  * Created by horiaacalin on 26/02/2017.

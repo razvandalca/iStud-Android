@@ -1,4 +1,4 @@
-package ro.horiacalin.istud.Interfaces;
+package ro.horiacalin.istud.BusinessLayer.Interfaces;
 
 /**
  * Created by Razvan'S PC on 05.03.2017.

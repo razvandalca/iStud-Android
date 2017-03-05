@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/colorPrimary"
-    tools:context="ro.horiacalin.istud.LoginActivity">
+    tools:context="ro.horiacalin.istud.PresentationLayer.Controller.LoginActivity">
 
     <!-- Login progress -->
     <ProgressBar

@@ -1,4 +1,4 @@
-package ro.horiacalin.istud;
+package ro.horiacalin.istud.PresentationLayer.Controller;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -32,8 +32,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import ro.horiacalin.istud.Api.ApiManager;
-import ro.horiacalin.istud.Interfaces.CallbackDefaultNetwork;
+import ro.horiacalin.istud.BusinessLayer.Managers.ApiManager;
+import ro.horiacalin.istud.BusinessLayer.Interfaces.CallbackDefaultNetwork;
+import ro.horiacalin.istud.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 

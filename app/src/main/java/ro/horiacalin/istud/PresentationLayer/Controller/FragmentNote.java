@@ -1,4 +1,4 @@
-package ro.horiacalin.istud;
+package ro.horiacalin.istud.PresentationLayer.Controller;
 
 
 import android.os.Bundle;
@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import ro.horiacalin.istud.BusinessLayer.Pojo.Materie;
+import ro.horiacalin.istud.R;
+import ro.horiacalin.istud.PresentationLayer.Adapters.RecyclerViewAdapterMaterii;
 
 /**
  * Created by horiaacalin on 05/03/2017.
