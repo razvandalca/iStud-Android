@@ -52,8 +52,6 @@ public class FragmentCalendar extends Fragment {
                              Bundle savedInstanceState) {
         View rootView=inflater.inflate(R.layout.fragment_calendar, container, false);
         // Inflate the layout for this fragment
-        textView = (TextView) rootView.findViewById(R.id.infoTextView);
-        textView.setText(mParam1);
         return rootView;
     }
 
