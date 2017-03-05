@@ -32,6 +32,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import ro.horiacalin.istud.Api.ApiManager;
+import ro.horiacalin.istud.Interfaces.CallbackDefaultNetwork;
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
@@ -92,6 +95,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        ApiManager.getInstance().login("admin", "admin", new CallbackDefaultNetwork() {
+            @Override
+            public void success(Object object) {
+
+
+            }
+
+            @Override
+            public void fail(String message) {
+
+            }
+        });
     }
 
     private void populateAutoComplete() {
