@@ -1,4 +1,4 @@
-package ro.horiacalin.istud.BusinessLayer;
+package ro.horiacalin.istud;
 
 /**
  * Created by Razvan'S PC on 05.03.2017.

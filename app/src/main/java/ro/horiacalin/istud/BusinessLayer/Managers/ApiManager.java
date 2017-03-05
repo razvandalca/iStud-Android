@@ -7,7 +7,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ro.horiacalin.istud.Api.iStudAPI;
 import ro.horiacalin.istud.BusinessLayer.Interfaces.CallbackDefaultNetwork;
-import ro.horiacalin.istud.BusinessLayer.Constants;
+import ro.horiacalin.istud.Constants;
 import ro.horiacalin.istud.BusinessLayer.Pojo.User;
 
 /**
