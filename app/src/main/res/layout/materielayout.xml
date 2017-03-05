@@ -1,23 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:background="#D0D6D6">
 
 
-    <TextView
-        android:id="@+id/numeMaterieView"
+    <LinearLayout
+        android:id="@+id/materiaVietii"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/numeMaterie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nume_materie"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/numeMaterieSetat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exemplu"
+            android:textSize="25sp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/red"
+            />
 
-    <TextView
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/numeProfesorView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_below="@id/materiaVietii"
+        android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/numeProfesor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nume_profesor"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/numeProfesorSetat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exemplu"
+            android:textSize="25sp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/red"
+            />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/numarCrediteView"
+    <LinearLayout
+        android:id="@+id/contactProfesorView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_below="@id/numeProfesorView"
+        android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/adresaContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/adresa_contact"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/adresaContactSetat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exemplu"
+            android:textSize="25sp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/red"
+            />
+    </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/crediteleVietii"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@id/contactProfesorView"
+        android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/numarCredite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/numar_credite"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/numarCrediteSetat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exemplu"
+            android:textSize="25sp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/red"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/punctajCursView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@id/crediteleVietii"
+        android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/punctajCurs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/punctaj_curs"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/punctajCursSetat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exemplu"
+            android:textSize="25sp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/red"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/punctajLaboratoView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@id/punctajCursView"
+        android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/punctajLaborator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/punctaj_laborator"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/punctajLaboratorSetat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exemplu"
+            android:textSize="25sp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/red"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/punctajLaboratoSeminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@id/punctajLaboratoView"
+        android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/punctajSeminar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/punctaj_seminar"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/punctajSeminarSetat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exemplu"
+            android:textSize="25sp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/red"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:background="@color/red"
+        android:onClick="trimiteEmailProfesor"
+        android:text="@string/contact" />
+
+
+
+</RelativeLayout>
