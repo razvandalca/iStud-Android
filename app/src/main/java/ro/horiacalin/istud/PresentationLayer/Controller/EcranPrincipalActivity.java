@@ -1,5 +1,6 @@
 package ro.horiacalin.istud.PresentationLayer.Controller;
 
+import android.app.ActionBar;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,6 +26,9 @@ public class EcranPrincipalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar_layout);
+
         setContentView(R.layout.ecran_principal);
 
         viewPager = (ViewPager) findViewById(R.id.pager);
