@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -168,6 +169,23 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+        }
+    }
+
+    public void trimiteEmailAdmin(View view){
+        String[] address = new String[1];
+        address[0] = "administrator@upb.ro";
+        composeEmail(address, "Mail trimis din iStudy - Configurare cont student", " ");
+    }
+
+    public void composeEmail(String[] addresses, String subject, String message) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
         }
     }
 

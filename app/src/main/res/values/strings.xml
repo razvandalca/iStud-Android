@@ -25,7 +25,7 @@
     <string name="nume">Nume</string>
     <string name="adresa_email">E-mail</string>
     <string name="detalii_materie">Detalii materie</string>
-
+    <string name="buton_contact">Ai uitat userul sau parola?</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
