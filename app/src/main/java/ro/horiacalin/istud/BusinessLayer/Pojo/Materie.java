@@ -1,7 +1,5 @@
 package ro.horiacalin.istud.BusinessLayer.Pojo;
 
-import android.support.v7.app.AppCompatActivity;
-
 import java.io.Serializable;
 
 /**
@@ -10,31 +8,32 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class Materie implements Serializable{
-    private String mName;
-    private int mNumarCredite;
-    private String mNumeTitular;
+    private int id;
+    private String name;
+    private int numarCredite;
+    private String numeTitular;
 
     public Materie(String name){
 
-        mName = name;
+        this.name = name;
     }
 
     public Materie(String name, int numarCredite, String numeTitular) {
-        mName = name;
-        mNumarCredite = numarCredite;
-        mNumeTitular = numeTitular;
+        this.name = name;
+        this.numarCredite = numarCredite;
+        this.numeTitular = numeTitular;
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 
     public int getNumarCredite(){
-        return mNumarCredite;
+        return numarCredite;
     }
 
     public String getNumeTitular(){
-        return mNumeTitular;
+        return numeTitular;
     }
 
     private static int lastMaterieID = 0;

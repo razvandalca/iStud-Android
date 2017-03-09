@@ -4,28 +4,15 @@
     android:layout_height="match_parent"
     tools:context="ro.horiacalin.istud.PresentationLayer.Controller.FragmentCalendar">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:elevation="2dp"
-        android:background="#ffe95451"
-        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark"
-        xmlns:android="http://schemas.android.com/apk/res/android" />
-
-
     <com.github.sundeepk.compactcalendarview.CompactCalendarView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/calendarView"
         android:layout_width="fill_parent"
         android:layout_height="250dp"
-        android:layout_below="@+id/toolbar"
         app:compactCalendarTargetHeight="250dp"
         app:compactCalendarTextSize="12sp"
-        app:compactCalendarBackgroundColor="#ffe95451"
-        app:compactCalendarTextColor="#fff"
+        app:compactCalendarBackgroundColor="@color/white"
+        app:compactCalendarTextColor="@color/red"
         app:compactCalendarCurrentSelectedDayBackgroundColor="#ffbd5f5f"
         app:compactCalendarCurrentDayBackgroundColor="#B71C1C"
         app:compactCalendarCurrentDayIndicatorStyle="fill_large_indicator"

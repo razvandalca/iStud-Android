@@ -2,6 +2,8 @@ package ro.horiacalin.istud.BusinessLayer.Managers;
 
 import android.content.Context;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -9,6 +11,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ro.horiacalin.istud.Api.iStudAPI;
 import ro.horiacalin.istud.BusinessLayer.Interfaces.CallbackDefaultNetwork;
+import ro.horiacalin.istud.BusinessLayer.Pojo.Materie;
 import ro.horiacalin.istud.Constants;
 import ro.horiacalin.istud.BusinessLayer.Pojo.User;
 import ro.horiacalin.istud.R;
@@ -19,6 +22,8 @@ import ro.horiacalin.istud.R;
 
 public class ApiManager {
     private static ApiManager INSTANCE;
+    private Retrofit retrofit;
+    private iStudAPI service;
 
     private ApiManager() {
     }
@@ -31,14 +36,18 @@ public class ApiManager {
         return INSTANCE;
     }
 
-
-    public void login(String email, String password, final Context context, final CallbackDefaultNetwork callbackDefaultNetwork) {
-        Retrofit retrofit = new Retrofit.Builder()
+    public void init(){
+        retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        iStudAPI service = retrofit.create(iStudAPI.class);
+         service = retrofit.create(iStudAPI.class);
+    }
+
+
+    public void login(String email, String password, final Context context, final CallbackDefaultNetwork callbackDefaultNetwork) {
+
 
         Call call = service.login(email, password);
         call.enqueue(new Callback() {
@@ -65,6 +74,30 @@ public class ApiManager {
             @Override
             public void onFailure(Call call, Throwable t) {
                 callbackDefaultNetwork.fail(context.getString(R.string.login_error_fatal));
+            }
+        });
+    }
+
+
+    public void getCourses(int userID, final Context context, final CallbackDefaultNetwork callbackDefaultNetwork){
+        Call call =service.getCourses(userID);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                switch (response.code()) {
+                    case 200:
+                        response.body();
+                        List<Materie> u = (List<Materie>) response.body();
+                        callbackDefaultNetwork.success(u);
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                callbackDefaultNetwork.fail(context.getString(R.string.login_error_fatal));
+
             }
         });
     }

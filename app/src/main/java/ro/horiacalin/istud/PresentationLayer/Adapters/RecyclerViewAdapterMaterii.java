@@ -1,8 +1,6 @@
 package ro.horiacalin.istud.PresentationLayer.Adapters;
 
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 import ro.horiacalin.istud.BusinessLayer.Pojo.Materie;
 import ro.horiacalin.istud.Constants;
 import ro.horiacalin.istud.PresentationLayer.Controller.MaterieActivity;
@@ -18,7 +18,7 @@ import ro.horiacalin.istud.R;
 
 
 public class RecyclerViewAdapterMaterii extends RecyclerView.Adapter<RecyclerViewAdapterMaterii.ViewHolder> {
-    private ArrayList<Materie> mDataset;
+    private List<Materie> mDataset;
     private Context context;
 
 
@@ -35,7 +35,7 @@ public class RecyclerViewAdapterMaterii extends RecyclerView.Adapter<RecyclerVie
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public RecyclerViewAdapterMaterii(Context context , ArrayList<Materie> myDataset) {
+    public RecyclerViewAdapterMaterii(Context context , List<Materie> myDataset) {
         this.mDataset = myDataset;
         this.context=context;
     }

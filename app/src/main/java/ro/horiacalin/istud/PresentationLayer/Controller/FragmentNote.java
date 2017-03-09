@@ -7,13 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import ro.horiacalin.istud.BusinessLayer.Pojo.Materie;
-import ro.horiacalin.istud.R;
 import ro.horiacalin.istud.PresentationLayer.Adapters.RecyclerViewAdapterMaterii;
+import ro.horiacalin.istud.R;
 
 /**
  * Created by horiaacalin on 05/03/2017.
@@ -27,7 +28,9 @@ public class FragmentNote extends android.support.v4.app.Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    public ArrayList<Materie> materiiLista= new ArrayList<>();
+    private ProgressBar progressBar;
+    private List<Materie> materiiLista;
+
 
     public FragmentNote(){
 
@@ -58,40 +61,17 @@ public class FragmentNote extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         View rootView=inflater.inflate(R.layout.fragment_note, container, false);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerViewNote);
+        progressBar = (ProgressBar) rootView.findViewById(R.id.progres_materii);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(mLayoutManager);
 
         mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
-
-        // specify an adapter (see also next example)
-
-        materiiLista.add(new Materie("ASC"));
-        materiiLista.add(new Materie("TEST2"));
-        materiiLista.add(new Materie("TEST3"));
-        materiiLista.add(new Materie("TEST4"));
-        materiiLista.add(new Materie("TEST5"));
-        materiiLista.add(new Materie("TEST6"));
-        materiiLista.add(new Materie("ASC"));
-        materiiLista.add(new Materie("TEST2"));
-        materiiLista.add(new Materie("TEST3"));
-        materiiLista.add(new Materie("TEST4"));
-        materiiLista.add(new Materie("TEST5"));
-        materiiLista.add(new Materie("TEST6"));
-        materiiLista.add(new Materie("ASC"));
-        materiiLista.add(new Materie("TEST2"));
-        materiiLista.add(new Materie("TEST3"));
-        materiiLista.add(new Materie("TEST4"));
-        materiiLista.add(new Materie("TEST5"));
-        materiiLista.add(new Materie("TEST6"));
-        materiiLista.add(new Materie("ASC"));
-        materiiLista.add(new Materie("TEST2"));
-        materiiLista.add(new Materie("TEST3"));
-        materiiLista.add(new Materie("TEST4"));
-        materiiLista.add(new Materie("TEST5"));
-        materiiLista.add(new Materie("TEST6"));
         mAdapter = new RecyclerViewAdapterMaterii(getActivity(),materiiLista);
         recyclerView.setAdapter(mAdapter);
+
+
+//        ApiManager.getInstance().getCourses(ToolsManager.getInstance().);
         return rootView;
     }
 
