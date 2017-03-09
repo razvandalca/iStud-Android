@@ -35,4 +35,6 @@
     <string name="generic_alert_dialog_title">Ups!</string>
     <string name="alert_dialog_positive_button">Ok</string>
     <string name="login_error_fatal">Something went wrong!</string>
+    <string name="materie_detalii_progress_dialog_title">Getting the details</string>
+    <string name="materie_detalii_progress_dialog_message">We are getting all your info for this courese.\nPlease wait!</string>
 </resources>

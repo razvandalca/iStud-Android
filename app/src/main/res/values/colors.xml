@@ -14,4 +14,5 @@
     <color name="grey">#5c616b</color>
     <color name="gre_unselected">#9f9f9f</color>
     <color name="etti">#D0D6D6</color>
+    <color name="color_ntb_icon_inactive">#2d0000</color>
 </resources>

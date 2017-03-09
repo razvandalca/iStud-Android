@@ -1,17 +1,17 @@
 package ro.horiacalin.istud.PresentationLayer.Controller;
 
-import android.app.ActionBar;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
 import devlight.io.library.ntb.NavigationTabBar;
-import ro.horiacalin.istud.R;
 import ro.horiacalin.istud.PresentationLayer.Adapters.ViewPageAdapter;
+import ro.horiacalin.istud.R;
 
 /**
  * Created by horiaacalin on 26/02/2017.
@@ -62,11 +62,10 @@ public class EcranPrincipalActivity extends AppCompatActivity {
         navigationTabBar.setIsTitled(true);
         navigationTabBar.setIsTinted(true);
         navigationTabBar.setIsBadgeUseTypeface(true);
-        navigationTabBar.setBadgeBgColor(Color.RED);
         navigationTabBar.setBadgeTitleColor(Color.WHITE);
         navigationTabBar.setIsSwiped(true);
-        navigationTabBar.setBgColor(Color.RED);
+        navigationTabBar.setBgColor(getResources().getColor(R.color.colorPrimary));
         navigationTabBar.setBadgeSize(5);
-        navigationTabBar.setTitleSize(15);
+        navigationTabBar.setTitleSize(30);
     }
 }

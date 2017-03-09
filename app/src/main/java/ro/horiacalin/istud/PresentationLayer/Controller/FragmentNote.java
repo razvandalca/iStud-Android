@@ -81,10 +81,14 @@ public class FragmentNote extends android.support.v4.app.Fragment {
         progressBar.setVisibility(View.VISIBLE);
 
         getCourses();
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,R.color.color_ntb_icon_inactive,R.color.colorPrimaryDark);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                instructionLabel.setVisibility(View.GONE);
                 getCourses();
+
+
             }
         });
         return rootView;
@@ -95,14 +99,15 @@ public class FragmentNote extends android.support.v4.app.Fragment {
             @Override
             public void success(Object object) {
                 progressBar.setVisibility(View.GONE);
+                instructionLabel.setVisibility(View.GONE);
+                swipeRefreshLayout.setRefreshing(false);
                 materiiLista = (List<Materie>) object;
-                if (materiiLista == null) {
-                    instructionLabel.setVisibility(View.VISIBLE);
-
-                } else {
-                    if (materiiLista.size() != 0) {
+                try{
+                    if(materiiLista.size()==0){
                         instructionLabel.setVisibility(View.VISIBLE);
                     }
+                }catch (Exception e){
+                    instructionLabel.setVisibility(View.VISIBLE);
 
                 }
 

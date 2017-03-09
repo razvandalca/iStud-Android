@@ -26,4 +26,7 @@ public interface iStudAPI  {
     @GET("course/read")
     Call<List<Materie>> getCourses(@Query("userid") int userID);
 
+    @GET("course/read")
+    Call<Materie> getCourseDetails(@Query("userid") int userID,@Query("courseid") int courseId);
+
 }
