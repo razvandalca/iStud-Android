@@ -23,7 +23,7 @@ public interface iStudAPI  {
     Call<User> login(@Field("email") String email, @Field("password") String pass);
 
 
-    @GET
+    @GET("course/read")
     Call<List<Materie>> getCourses(@Query("userid") int userID);
 
 }

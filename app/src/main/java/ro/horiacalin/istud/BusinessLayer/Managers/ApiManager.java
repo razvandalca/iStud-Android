@@ -12,8 +12,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import ro.horiacalin.istud.Api.iStudAPI;
 import ro.horiacalin.istud.BusinessLayer.Interfaces.CallbackDefaultNetwork;
 import ro.horiacalin.istud.BusinessLayer.Pojo.Materie;
-import ro.horiacalin.istud.Constants;
 import ro.horiacalin.istud.BusinessLayer.Pojo.User;
+import ro.horiacalin.istud.Constants;
 import ro.horiacalin.istud.R;
 
 /**
@@ -26,6 +26,7 @@ public class ApiManager {
     private iStudAPI service;
 
     private ApiManager() {
+        init();
     }
 
     public static ApiManager getInstance() {
@@ -37,6 +38,9 @@ public class ApiManager {
     }
 
     public void init(){
+
+
+
         retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

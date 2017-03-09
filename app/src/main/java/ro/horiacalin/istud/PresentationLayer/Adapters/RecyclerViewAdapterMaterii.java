@@ -69,6 +69,11 @@ public class RecyclerViewAdapterMaterii extends RecyclerView.Adapter<RecyclerVie
 
     }
 
+    public void setmDataset(List<Materie> mDataset) {
+        this.mDataset = mDataset;
+        notifyDataSetChanged();
+    }
+
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {

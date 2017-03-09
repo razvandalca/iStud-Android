@@ -35,18 +35,16 @@ public class EcranPrincipalActivity extends AppCompatActivity {
         final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
         models.add(
                 new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.logo_etti),
-                        Color.GREEN
-                ).title("Heart")
-                        .badgeTitle("NTB")
+                        getResources().getDrawable(R.drawable.ic_calendar),
+                        Color.TRANSPARENT
+                ).title("Calendar")
                         .build()
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.logo_etti),
-                        Color.BLUE
-                ).title("Cup")
-                        .badgeTitle("with")
+                        getResources().getDrawable(R.drawable.ic_note),
+                        Color.TRANSPARENT
+                ).title("Note")
                         .build()
         );
 
@@ -56,7 +54,6 @@ public class EcranPrincipalActivity extends AppCompatActivity {
         navigationTabBar.setTitleMode(NavigationTabBar.TitleMode.ACTIVE);
         navigationTabBar.setBadgeGravity(NavigationTabBar.BadgeGravity.BOTTOM);
         navigationTabBar.setBadgePosition(NavigationTabBar.BadgePosition.CENTER);
-        navigationTabBar.setTypeface("fonts/custom_font.ttf");
         navigationTabBar.setIsBadged(true);
         navigationTabBar.setIsTitled(true);
         navigationTabBar.setIsTinted(true);
@@ -64,8 +61,8 @@ public class EcranPrincipalActivity extends AppCompatActivity {
         navigationTabBar.setBadgeBgColor(Color.RED);
         navigationTabBar.setBadgeTitleColor(Color.WHITE);
         navigationTabBar.setIsSwiped(true);
-        navigationTabBar.setBgColor(Color.BLACK);
-        navigationTabBar.setBadgeSize(10);
-        navigationTabBar.setTitleSize(10);
+        navigationTabBar.setBgColor(Color.RED);
+        navigationTabBar.setBadgeSize(5);
+        navigationTabBar.setTitleSize(15);
     }
 }

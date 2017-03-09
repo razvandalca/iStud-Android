@@ -5,6 +5,7 @@ package ro.horiacalin.istud.BusinessLayer.Pojo;
  */
 
 public class User {
+    private int id;
     private String email;
     private String username;
     private String password;
@@ -40,5 +41,13 @@ public class User {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
