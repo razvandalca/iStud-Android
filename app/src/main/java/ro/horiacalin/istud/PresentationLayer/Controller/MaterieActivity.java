@@ -35,8 +35,8 @@ public class MaterieActivity extends AppCompatActivity {
         setContentView(R.layout.materielayout);
         numeProfesor = (TextView) findViewById(R.id.numeProfesorSetat);
         numarCredite = (TextView) findViewById(R.id.numarCrediteSetat);
-        numeMaterie = (TextView) findViewById(R.id.numeMaterieSetat);
-        contactProfesorView = (TextView) findViewById(R.id.adresaContactSetat);
+        numeMaterie = (TextView) findViewById(R.id.numeMaterie);
+        contactProfesorView = (TextView) findViewById(R.id.contactProfesorSetat);
 
         if (getIntent()!=null){
             materie = (Materie) getIntent().getSerializableExtra(Constants.MATERIE_KEY);

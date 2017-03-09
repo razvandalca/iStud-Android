@@ -15,13 +15,16 @@
     </string>
     <string name="exemplu">Exemplu</string>
     <string name="nume_materie">Nume materie</string>
-    <string name="nume_profesor">Nume profesor</string>
+    <string name="nume_profesor">Profesor</string>
     <string name="numar_credite">Numar credite</string>
     <string name="punctaj_curs">Punctaj curs</string>
     <string name = "punctaj_laborator">Punctaj laborator</string>
     <string name = "punctaj_seminar">Punctaj seminar</string>
     <string name = "contact">Contact</string>
-    <string name = "adresa_contact">Adresa contact</string>
+    <string name = "birou">Birou</string>
+    <string name="nume">Nume</string>
+    <string name="adresa_email">E-mail</string>
+    <string name="detalii_materie">Detalii materie</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
