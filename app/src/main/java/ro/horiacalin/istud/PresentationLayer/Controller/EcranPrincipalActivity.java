@@ -12,6 +12,7 @@ import devlight.io.library.ntb.NavigationTabBar;
 import ro.horiacalin.istud.R;
 import ro.horiacalin.istud.PresentationLayer.Adapters.ViewPageAdapter;
 
+
 /**
  * Created by horiaacalin on 26/02/2017.
  */
@@ -67,5 +68,8 @@ public class EcranPrincipalActivity extends AppCompatActivity {
         navigationTabBar.setBgColor(Color.BLACK);
         navigationTabBar.setBadgeSize(10);
         navigationTabBar.setTitleSize(10);
+
     }
+
+
 }
