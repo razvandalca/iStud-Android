@@ -106,4 +106,27 @@ public class ApiManager {
         });
     }
 
+    public void getCourseDetails(int userID,int courseID, final Context context, final CallbackDefaultNetwork callbackDefaultNetwork){
+        Call call =service.getCourseDetails(userID,courseID);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                switch (response.code()) {
+                    case 200:
+                        response.body();
+                        Materie u = (Materie) response.body();
+                        callbackDefaultNetwork.success(u);
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                callbackDefaultNetwork.fail(context.getString(R.string.login_error_fatal));
+
+            }
+        });
+    }
+
 }

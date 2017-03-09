@@ -8,8 +8,18 @@ public class User {
     private int id;
     private String email;
     private String username;
+    private String name;
     private String password;
     private int type;
+
+    public User(int id, String email, String username, String name, String password, int type) {
+        this.id = id;
+        this.email = email;
+        this.username = username;
+        this.name = name;
+        this.password = password;
+        this.type = type;
+    }
 
     public String getEmail() {
         return email;
@@ -49,5 +59,13 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
