@@ -1,8 +1,9 @@
 package ro.horiacalin.istud.Api;
 
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 import ro.horiacalin.istud.BusinessLayer.Pojo.User;
 
 /**
@@ -11,7 +12,9 @@ import ro.horiacalin.istud.BusinessLayer.Pojo.User;
 
 public interface iStudAPI  {
 
+
+    @FormUrlEncoded
     @POST("user/login")
-    Call<User> login(@Path("email") String email,@Path("password") String pass);
+    Call<User> login(@Field("email") String email, @Field("password") String pass);
 
 }

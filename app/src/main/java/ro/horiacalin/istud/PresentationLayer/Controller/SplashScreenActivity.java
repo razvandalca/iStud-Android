@@ -32,7 +32,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     private void verifyLogin() {
 
-        SharedPreferences prefs = getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences prefs = getApplicationContext().getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
         if(prefs.getBoolean(Constants.SHARED_PREF_LOGIN,false)){
             Intent newsActivityIntent=new Intent(SplashScreenActivity.this, EcranPrincipalActivity.class);
             newsActivityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);

@@ -10,4 +10,16 @@ public class Constants  {
     public static final String SHARED_PREF="shared_pref_user";
     public static final String SHARED_PREF_LOGIN="shared_pref_login";
     public static String MATERIE_KEY="materie_key";
+
+
+
+    public static final int USER_TYPE_STUDENT = 0;
+    public static final int USER_TYPE_PROF = 1;
+    public static final int USER_TYPE_ADMIN = -1;
+
+    public static final int COURSE_FREQ_WEEKLY = 0;
+    public static final int COURSE_FREQ_ODD = 1;
+    public static final int COURSE_FREQ_EVEN = 2;
+    public static final int COURSE_FREQ_MONTHLY = 4;
+
 }

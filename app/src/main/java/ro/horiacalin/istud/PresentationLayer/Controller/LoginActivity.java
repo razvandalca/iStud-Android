@@ -3,9 +3,11 @@ package ro.horiacalin.istud.PresentationLayer.Controller;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -17,6 +19,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import ro.horiacalin.istud.BusinessLayer.Interfaces.CallbackDefaultNetwork;
+import ro.horiacalin.istud.BusinessLayer.Managers.ApiManager;
+import ro.horiacalin.istud.BusinessLayer.Managers.ToolsManager;
+import ro.horiacalin.istud.BusinessLayer.Pojo.User;
 import ro.horiacalin.istud.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -64,8 +70,8 @@ public class LoginActivity extends AppCompatActivity {
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
+        final String email = mEmailView.getText().toString();
+        final String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -93,26 +99,49 @@ public class LoginActivity extends AppCompatActivity {
             // form field with an error.
             focusView.requestFocus();
         } else {
-
             showProgress(true);
-            Intent intent = new Intent(this, EcranPrincipalActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+            ToolsManager.getInstance().hideKeyboard(this, mLoginFormView);
+            ApiManager.getInstance().login(email, password, this, new CallbackDefaultNetwork() {
+                @Override
+                public void success(Object object) {
+                    ToolsManager.getInstance().loginSuccesfull((User) object, getApplicationContext());
+                    Intent intent = new Intent(LoginActivity.this, EcranPrincipalActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void fail(String message) {
+                    showProgress(false);
+                    new AlertDialog.Builder(LoginActivity.this).setTitle(R.string.generic_alert_dialog_title)
+                            .setMessage(message)
+                            .setPositiveButton(R.string.alert_dialog_positive_button, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    resetFields();
+                                }
+                            }).show();
+
+                }
+            });
+
         }
     }
+
+    private void resetFields() {
+        mEmailView.setText("");
+        mPasswordView.setText("");
+    }
+
     private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.contains("@etti.pub.ro");
+//        return email.contains("@etti.pub.ro");
+        return email.contains("@");
     }
 
     private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
         return password.length() > 4;
     }
 
-    /**
-     * Shows the progress UI and hides the login form.
-     */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void showProgress(final boolean show) {
 
@@ -137,8 +166,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
         } else {
-            // The ViewPropertyAnimator APIs are not available, so simply show
-            // and hide the relevant UI components.
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
