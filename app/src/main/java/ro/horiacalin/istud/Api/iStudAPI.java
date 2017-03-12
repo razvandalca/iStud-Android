@@ -9,6 +9,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 import ro.horiacalin.istud.BusinessLayer.Pojo.Materie;
+import ro.horiacalin.istud.BusinessLayer.Pojo.Scheduale;
 import ro.horiacalin.istud.BusinessLayer.Pojo.User;
 
 /**
@@ -28,5 +29,11 @@ public interface iStudAPI  {
 
     @GET("course/read")
     Call<Materie> getCourseDetails(@Query("userid") int userID,@Query("courseid") int courseId);
+
+    @GET("schedule/read")
+    Call<List<Scheduale>> getScheduale(@Query("userid") int userID);
+
+
+
 
 }

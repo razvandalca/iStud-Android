@@ -98,29 +98,42 @@ public class MaterieActivity extends AppCompatActivity {
     }
 
     private void populateAvticity() {
-        numeMaterie.setText(materie.getCourse_name());
+        if(materie.getCourse_name()!=null) {
+            numeMaterie.setText(materie.getCourse_name());
+        }
+        if(materie.getProf_name()!=null) {
+            numeProfesor.setText(materie.getProf_name());
+        }
+        if(materie.getOffice()!=null) {
+            birouProf.setText(materie.getOffice());
+        }
+        if(materie.getEmail()!=null) {
+            emailProf.setText(materie.getEmail());
+        }
+        if(materie.getCreditNo()!=0){
+            numarCredite.setText(Integer.toString(materie.getCreditNo()));
 
-        numeProfesor.setText(materie.getProf_name());
-        birouProf.setText(materie.getOffice());
-        emailProf.setText(materie.getEmail());
+        }
 
-        numarCredite.setText(Integer.toString(materie.getCreditNo()));
-        for (Grade g : materie.getGrades()) {
-            switch (g.getActivity()) {
-                case Constants.GRADE_TYPE_COURSE:
-                    punctajCurs.setText(Double.toString(g.getValue()));
-                    break;
-                case Constants.GRADE_TYPE_LAB:
-                    punctajLab.setText(Double.toString(g.getValue()));
-                    break;
-                case Constants.GRADE_TYPE_PROJECT:
-                    //// TODO: 10.03.2017 ADD IN XML THE VIEW
-                    break;
-                case Constants.GRADE_TYPE_SEMINAR:
-                    //// TODO: 10.03.2017 ADD IN XML THE VIEW
+        if(materie.getGrades()!=null && materie.getGrades().size()>0) {
+            for (Grade g : materie.getGrades()) {
+                switch (g.getActivity()) {
+                    case Constants.GRADE_TYPE_COURSE:
 
-                    break;
+                        punctajCurs.setText(Double.toString(g.getValue()));
+                        break;
+                    case Constants.GRADE_TYPE_LAB:
+                        punctajLab.setText(Double.toString(g.getValue()));
+                        break;
+                    case Constants.GRADE_TYPE_PROJECT:
+                        //// TODO: 10.03.2017 ADD IN XML THE VIEW
+                        break;
+                    case Constants.GRADE_TYPE_SEMINAR:
+                        //// TODO: 10.03.2017 ADD IN XML THE VIEW
 
+                        break;
+
+                }
             }
         }
     }

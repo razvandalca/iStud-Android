@@ -3,7 +3,9 @@ package ro.horiacalin.istud.BusinessLayer.Managers;
 import android.content.Context;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -12,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import ro.horiacalin.istud.Api.iStudAPI;
 import ro.horiacalin.istud.BusinessLayer.Interfaces.CallbackDefaultNetwork;
 import ro.horiacalin.istud.BusinessLayer.Pojo.Materie;
+import ro.horiacalin.istud.BusinessLayer.Pojo.Scheduale;
 import ro.horiacalin.istud.BusinessLayer.Pojo.User;
 import ro.horiacalin.istud.Constants;
 import ro.horiacalin.istud.R;
@@ -39,11 +42,15 @@ public class ApiManager {
 
     public void init(){
 
-
+        final OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .readTimeout(5, TimeUnit.MINUTES)
+                .connectTimeout(5, TimeUnit.MINUTES)
+                .build();
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)
                 .build();
 
          service = retrofit.create(iStudAPI.class);
@@ -118,6 +125,30 @@ public class ApiManager {
                         callbackDefaultNetwork.success(u);
                         break;
 
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                callbackDefaultNetwork.fail(context.getString(R.string.login_error_fatal));
+
+            }
+        });
+    }
+
+    public void getScheduale (int userID, final Context context, final CallbackDefaultNetwork callbackDefaultNetwork){
+        Call call =service.getScheduale(userID);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                switch (response.code()) {
+                    case 200:
+                        response.body();
+                        List<Scheduale> u = (List<Scheduale>) response.body();
+                        callbackDefaultNetwork.success(u);
+                        break;
+                default:
+                    callbackDefaultNetwork.fail("Error");
                 }
             }
 

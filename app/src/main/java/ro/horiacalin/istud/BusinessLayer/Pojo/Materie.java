@@ -28,6 +28,10 @@ public class Materie implements Serializable{
         this.grades = grades;
     }
 
+    public Materie(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }

@@ -13,6 +13,11 @@ public class Constants  {
 
 
 
+    public static String END_SEMN_2="26-05-2017";
+    public static String START_SEM_2="20.02.2017";
+
+
+
     public static final int USER_TYPE_STUDENT = 0;
     public static final int USER_TYPE_PROF = 1;
     public static final int USER_TYPE_ADMIN = -1;
@@ -22,10 +27,25 @@ public class Constants  {
     public static final int COURSE_FREQ_EVEN = 2;
     public static final int COURSE_FREQ_MONTHLY = 4;
 
+    public static final int SCH_TYPE_COURES = 1;
+    public static final int SCH_TYPE_LAB = 2;
+    public static final int SCH_TYPE_SEMINAR = 3;
+    public static final int SCH_TYPE_PROJ = 4;
+
+
+
 
     public static final int GRADE_TYPE_COURSE = 0;
     public static final int GRADE_TYPE_LAB = 1;
     public static final int GRADE_TYPE_SEMINAR = 2;
     public static final int GRADE_TYPE_PROJECT = 3;
+
+
+
+
+
+    public static final  int MILLISECONDS_IN_ONE_WEEK = 86400 * 7 * 1000;
+    public static final  int MILLISECONDS_IN_TWO_WEEK = 86400 * 14 * 1000;
+    public static final  int MILLISECONDS_IN_FOUR_WEEK = 86400 * 28 * 1000;
 
 }
