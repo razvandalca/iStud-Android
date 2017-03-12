@@ -53,7 +53,7 @@ public class EcranPrincipalActivity extends AppCompatActivity {
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.logo_etti),
+                        getResources().getDrawable(R.drawable.ic_settings),
                         Color.TRANSPARENT
                 ).title("Setari")
                         .build()
