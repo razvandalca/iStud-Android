@@ -21,7 +21,7 @@ public class EcranPrincipalActivity extends AppCompatActivity {
 
     public ViewPager viewPager;
     public ViewPageAdapter viewPageAdapter;
-    public final int numarFragmente = 2;
+    public final int numarFragmente = 3;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,6 +49,13 @@ public class EcranPrincipalActivity extends AppCompatActivity {
                         getResources().getDrawable(R.drawable.ic_note),
                         Color.TRANSPARENT
                 ).title("Note")
+                        .build()
+        );
+        models.add(
+                new NavigationTabBar.Model.Builder(
+                        getResources().getDrawable(R.drawable.logo_etti),
+                        Color.TRANSPARENT
+                ).title("Setari")
                         .build()
         );
 
