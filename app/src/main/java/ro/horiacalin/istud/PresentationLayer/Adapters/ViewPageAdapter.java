@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import ro.horiacalin.istud.PresentationLayer.Controller.FragmentCalendar;
 import ro.horiacalin.istud.PresentationLayer.Controller.FragmentNote;
+import ro.horiacalin.istud.PresentationLayer.Controller.FragmentSetari;
 
 /**
  * Created by horiaacalin on 26/02/2017.
@@ -13,7 +14,7 @@ import ro.horiacalin.istud.PresentationLayer.Controller.FragmentNote;
 
 public class ViewPageAdapter extends FragmentPagerAdapter {
 
-    int numarFragmente = 2;
+    int numarFragmente = 3;
 
     public ViewPageAdapter(FragmentManager fm, int numarFragmente) {
         super(fm);
@@ -29,6 +30,9 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
 
             case 1:
                 return FragmentNote.newInstance("Fragment 2");
+
+            case 2:
+                return FragmentSetari.newInstance("Fragment 3");
 
             default:
                 return null;
