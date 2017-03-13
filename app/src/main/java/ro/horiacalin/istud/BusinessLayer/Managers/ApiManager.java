@@ -1,6 +1,9 @@
 package ro.horiacalin.istud.BusinessLayer.Managers;
 
 import android.content.Context;
+import android.util.Log;
+
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -24,6 +27,7 @@ import ro.horiacalin.istud.R;
  */
 
 public class ApiManager {
+    private final String TAG="API";
     private static ApiManager INSTANCE;
     private Retrofit retrofit;
     private iStudAPI service;
@@ -72,6 +76,7 @@ public class ApiManager {
                         response.body();
                         User u = (User) response.body();
                         callbackDefaultNetwork.success(u);
+                        sendTokenToServer(u, FirebaseInstanceId.getInstance().getToken(),callbackDefaultNetwork);
                         break;
                     case 404:
                         callbackDefaultNetwork.fail(context.getString(R.string.login_error_404));
@@ -85,6 +90,36 @@ public class ApiManager {
             @Override
             public void onFailure(Call call, Throwable t) {
                 callbackDefaultNetwork.fail(context.getString(R.string.login_error_fatal));
+            }
+        });
+    }
+
+
+    public void sendTokenToServer(final User user, final String token, final CallbackDefaultNetwork callbackDefaultNetwork) {
+
+
+        Call call = service.sendTokenToServer(user.getId(), token);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                switch (response.code()) {
+                    case 200:
+                        Log.e(TAG, "onResponse: TOKEN OK ");
+                        user.setToken(token);
+                        break;
+                    case 404:
+                        Log.e(TAG, response.message());
+                        break;
+                    case 403:
+                        Log.e(TAG, response.message());
+                        break;
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
             }
         });
     }

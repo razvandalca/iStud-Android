@@ -11,6 +11,7 @@ public class User {
     private String name;
     private String password;
     private int type;
+    private String token;
 
     public User(int id, String email, String username, String name, String password, int type) {
         this.id = id;
@@ -67,5 +68,13 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

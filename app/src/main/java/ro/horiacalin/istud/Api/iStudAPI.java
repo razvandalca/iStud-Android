@@ -33,6 +33,10 @@ public interface iStudAPI  {
     @GET("schedule/read")
     Call<List<Scheduale>> getScheduale(@Query("userid") int userID);
 
+    @FormUrlEncoded
+    @POST("user/token")
+    Call<Void> sendTokenToServer(@Field("userid") int userID,@Field("token") String token);
+
 
 
 
