@@ -60,7 +60,7 @@ public class FragmentSetari extends android.support.v4.app.Fragment implements V
         termeniSiConditii= (TextView) rootView.findViewById(R.id.termeniSiConditiiTextView);
         logOut= (TextView) rootView.findViewById(R.id.butonLogOut);
         greetingsTextview= (TextView) rootView.findViewById(R.id.greetingsTextView);
-        greetingsTextview.setText(String.format(getActivity().getString(R.string.setari_hello),ToolsManager.getInstance().getUser(getActivity().getApplicationContext()).getUsername()));
+        greetingsTextview.setText(String.format(getActivity().getString(R.string.setari_hello),ToolsManager.getInstance().getUser(getActivity().getApplicationContext()).getName()));
 
         resetareParola.setOnClickListener(this);
         contactButton.setOnClickListener(this);
