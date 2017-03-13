@@ -35,13 +35,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_splash_screen">SplashScreenActivity</string>
-    <string name="login_error_404">No user found with this email!</string>
-    <string name="login_error_403">Email or password not valid! \nPlease try again!</string>
-    <string name="generic_alert_dialog_title">Ups!</string>
-    <string name="alert_dialog_positive_button">Ok</string>
-    <string name="login_error_fatal">Something went wrong!</string>
-    <string name="materie_detalii_progress_dialog_title">Getting the details</string>
-    <string name="materie_detalii_progress_dialog_message">We are getting all your info for this courese.\nPlease wait!</string>
+    <string name="login_error_404">Nu exista niciun user cu acest email</string>
+    <string name="login_error_403">Email sau parola gresita \nIncearca din nou</string>
+    <string name="generic_alert_dialog_title">Oops!</string>
+    <string name="alert_dialog_positive_button">OK</string>
+    <string name="login_error_fatal">Ceva n-a mers tocmai cum trebuie</string>
+    <string name="materie_detalii_progress_dialog_title">Descarcam informatiile</string>
+    <string name="materie_detalii_progress_dialog_message">Se obtin informatiile pentru materie\nTe rugam sa astepti</string>
     <string name="nu_sunt_disponibile">Informatii indisponibile</string>
 
 
