@@ -1,7 +1,11 @@
 package ro.horiacalin.istud.PresentationLayer.Controller;
 
 import android.app.Fragment;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,7 +17,12 @@ import android.widget.EditText;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 
+import ro.horiacalin.istud.BusinessLayer.Managers.ToolsManager;
+import ro.horiacalin.istud.BusinessLayer.Pojo.User;
+import ro.horiacalin.istud.Constants;
 import ro.horiacalin.istud.R;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by horiaacalin on 12/03/2017.
@@ -44,6 +53,8 @@ public class FragmentSetari extends android.support.v4.app.Fragment{
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
+
+
         }
 
 
@@ -57,7 +68,8 @@ public class FragmentSetari extends android.support.v4.app.Fragment{
 
 
         mButton = (Button)rootView.findViewById(R.id.button);
-        mEdit   = (EditText)rootView.findViewById(R.id.numeUser);
+        mEdit   = (EditText)rootView.findViewById(R.id.numeUserIntrodus);
+
 
         mButton.setOnClickListener(
                 new View.OnClickListener()
@@ -67,6 +79,49 @@ public class FragmentSetari extends android.support.v4.app.Fragment{
                         Log.v("Nume user", mEdit.getText().toString());
                     }
                 });
+        Button button = (Button) rootView.findViewById(R.id.butonContactEchipa);
+
+        button.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+                        mailEchipa();
+                    }
+                });
+
+        Button buttonLogout = (Button) rootView.findViewById(R.id.butonLogOut);
+
+        buttonLogout.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+
+                        ToolsManager.getInstance().prefs.edit().putBoolean(Constants.SHARED_PREF_LOGIN,false).commit();
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        getActivity().finishAffinity();
+                        startActivity(intent);
+                        Log.e("Delogare:", "s-a incercat delogarea");
+                    }
+                });
+
+
         return rootView;
     }
+
+
+
+    public void mailEchipa() {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, "office@istudy.ro");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Problema aplicatie iStudy");
+        intent.putExtra(Intent.EXTRA_TEXT, " ");
+        if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+            startActivity(intent);
+        }
+
+    }
+
 }
