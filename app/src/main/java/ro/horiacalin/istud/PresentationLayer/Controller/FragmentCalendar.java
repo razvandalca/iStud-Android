@@ -97,6 +97,8 @@ public class FragmentCalendar extends Fragment {
             }
         });
 
+        compactCalendarView.setSelected(true);
+
         ApiManager.getInstance().getScheduale(ToolsManager.getInstance().getUser(getActivity().getApplicationContext()).getId(), getActivity().getApplicationContext(), new CallbackDefaultNetwork() {
             @Override
             public void success(Object object) {
@@ -144,5 +146,18 @@ public class FragmentCalendar extends Fragment {
 
         return rootView;
     }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+
 
 }

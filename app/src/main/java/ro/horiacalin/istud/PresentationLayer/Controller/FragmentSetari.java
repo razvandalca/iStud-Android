@@ -98,7 +98,7 @@ public class FragmentSetari extends android.support.v4.app.Fragment{
                     public void onClick(View view)
                     {
 
-                        ToolsManager.getInstance().prefs.edit().putBoolean(Constants.SHARED_PREF_LOGIN,false).commit();
+                        getActivity().getApplicationContext().getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE).edit().putBoolean(Constants.SHARED_PREF_LOGIN,false).commit();
                         Intent intent = new Intent(getActivity(), LoginActivity.class);
                         getActivity().finishAffinity();
                         startActivity(intent);
