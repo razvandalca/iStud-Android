@@ -35,6 +35,8 @@ public class MaterieActivity extends AppCompatActivity {
     private TextView numarCredite;
     private TextView punctajCurs;
     private TextView punctajLab;
+    private TextView punctajProiect;
+    private TextView punctajSeminar;
 
 
     private TextView numeMaterie;
@@ -59,6 +61,8 @@ public class MaterieActivity extends AppCompatActivity {
         numarCredite = (TextView) findViewById(R.id.numarCrediteSetat);
         punctajCurs = (TextView) findViewById(R.id.punctajCursSetat);
         punctajLab = (TextView) findViewById(R.id.punctajLaboratorSetat);
+        punctajProiect = (TextView)findViewById(R.id.punctajProiectSetat);
+        punctajSeminar = (TextView) findViewById(R.id.punctajSeminarSetat);
 
         numeMaterie = (TextView) findViewById(R.id.numeMaterie);
 
@@ -130,8 +134,10 @@ public class MaterieActivity extends AppCompatActivity {
                         break;
                     case Constants.GRADE_TYPE_PROJECT:
                         //// TODO: 10.03.2017 ADD IN XML THE VIEW
+                        punctajProiect.setText(Double.toString(g.getValue()));
                         break;
                     case Constants.GRADE_TYPE_SEMINAR:
+                        punctajSeminar.setText(Double.toString(g.getValue()));
                         //// TODO: 10.03.2017 ADD IN XML THE VIEW
 
                         break;
@@ -159,4 +165,6 @@ public class MaterieActivity extends AppCompatActivity {
         finish();
         return super.onSupportNavigateUp();
     }
+
+
 }
