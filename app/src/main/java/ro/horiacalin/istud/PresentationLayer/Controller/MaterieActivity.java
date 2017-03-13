@@ -47,6 +47,9 @@ public class MaterieActivity extends AppCompatActivity {
 
         setContentView(R.layout.materielayout);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 
         numeProfesor = (TextView) findViewById(R.id.numeProfesorSetat);
         birouProf = (TextView) findViewById(R.id.birouProfesorSetat);
@@ -151,4 +154,9 @@ public class MaterieActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return super.onSupportNavigateUp();
+    }
 }
