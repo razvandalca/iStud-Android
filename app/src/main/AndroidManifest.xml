@@ -12,19 +12,23 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        >
         <activity
             android:name=".PresentationLayer.Controller.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
 
         </activity>
         <activity
             android:name=".PresentationLayer.Controller.EcranPrincipalActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".PresentationLayer.Controller.SplashScreenActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar.FullScreen">
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar.FullScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,7 +38,8 @@
 
         <activity
             android:name=".PresentationLayer.Controller.MaterieActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
 
         </activity>
 
