@@ -43,4 +43,13 @@
     <string name="materie_detalii_progress_dialog_title">Getting the details</string>
     <string name="materie_detalii_progress_dialog_message">We are getting all your info for this courese.\nPlease wait!</string>
     <string name="nu_sunt_disponibile">Informatii indisponibile</string>
+
+
+    <string name="setari_hello">Buna, %1$s!</string>
+    <string name="resetare_parola">Resetare Parola</string>
+    <string name="generic_curs">Curs</string>
+    <string name="generic_laborator">Laborator</string>
+    <string name="generic_proiect">Proiect</string>
+    <string name="generic_seminar">Seminar</string>
+
 </resources>

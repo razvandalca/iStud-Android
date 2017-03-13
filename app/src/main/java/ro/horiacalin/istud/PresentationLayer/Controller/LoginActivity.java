@@ -62,6 +62,8 @@ public class LoginActivity extends AppCompatActivity {
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        mEmailSignInButton.requestFocus();
     }
 
     private void attemptLogin() {
@@ -172,7 +174,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void trimiteEmailAdmin(View view){
+    public void trimiteEmailAdmin(View view) {
         String[] address = new String[1];
         address[0] = "administrator@upb.ro";
         composeEmail(address, "Mail trimis din iStudy - Configurare cont student", " ");

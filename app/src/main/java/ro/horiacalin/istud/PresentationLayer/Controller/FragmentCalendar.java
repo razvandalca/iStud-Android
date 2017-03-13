@@ -40,7 +40,8 @@ public class FragmentCalendar extends Fragment {
     private TextView calendarMonthTextview;
     private RecyclerViewAdapterEventsCalendar adapterEventsCalendar;
     private List<Event> eventList = new ArrayList<>();
-
+    private List<Event> bookingsFromMap = new ArrayList<>();
+    private Date dateClicked;
     public FragmentCalendar() {
         // Required empty public constructor
     }
@@ -69,7 +70,7 @@ public class FragmentCalendar extends Fragment {
         calendarBackButton = (ImageButton) rootView.findViewById(R.id.calendarBackButton);
         calendarForwardButton = (ImageButton) rootView.findViewById(R.id.calendarForwardButton);
         calendarMonthTextview = (TextView) rootView.findViewById(R.id.calendarMonthTextView);
-        adapterEventsCalendar = new RecyclerViewAdapterEventsCalendar(getActivity().getApplicationContext(), eventList);
+        adapterEventsCalendar = new RecyclerViewAdapterEventsCalendar(getActivity().getApplicationContext(), bookingsFromMap);
 
         eventsRecyclerView.setNestedScrollingEnabled(false);
         eventsRecyclerView.setAdapter(adapterEventsCalendar);
@@ -78,13 +79,14 @@ public class FragmentCalendar extends Fragment {
 
         compactCalendarView.setFirstDayOfWeek(Calendar.MONDAY);
 
+
         final Date firsDayCurrentMonth = compactCalendarView.getFirstDayOfCurrentMonth();
         calendarMonthTextview.setText(DateFormat.format("MMMM", firsDayCurrentMonth));
         compactCalendarView.setCurrentDayBackgroundColor(R.color.etti);
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
             public void onDayClick(Date dateClicked) {
-                List<Event> bookingsFromMap = compactCalendarView.getEvents(dateClicked);
+                bookingsFromMap = compactCalendarView.getEvents(dateClicked);
                 adapterEventsCalendar.setmDataset(bookingsFromMap);
 
 
@@ -99,6 +101,25 @@ public class FragmentCalendar extends Fragment {
 
         compactCalendarView.setSelected(true);
 
+        if(eventList.size()<=0) {
+            getScheduale();
+        }else{
+
+            compactCalendarView.addEvents(eventList);
+            eventList.clear();
+            getScheduale();
+
+        }
+
+
+        compactCalendarView.setUseThreeLetterAbbreviation(true);
+        compactCalendarView.shouldDrawIndicatorsBelowSelectedDays(true);
+        compactCalendarView.requestFocus();
+
+        return rootView;
+    }
+
+    private void getScheduale() {
         ApiManager.getInstance().getScheduale(ToolsManager.getInstance().getUser(getActivity().getApplicationContext()).getId(), getActivity().getApplicationContext(), new CallbackDefaultNetwork() {
             @Override
             public void success(Object object) {
@@ -108,14 +129,14 @@ public class FragmentCalendar extends Fragment {
                     try {
                         Date simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy").parse(s.getStartDate());
                         Event e = null;
-                        while(simpleDateFormat.before(new SimpleDateFormat("dd-MM-yyyy").parse(Constants.END_SEMN_2))) {
+                        while (simpleDateFormat.before(new SimpleDateFormat("dd-MM-yyyy").parse(Constants.END_SEMN_2))) {
                             e = new Event(Color.RED, simpleDateFormat.getTime(), s);
                             eventList.add(e);
-                            switch (s.getFrequency()){
+                            switch (s.getFrequency()) {
                                 case Constants.COURSE_FREQ_WEEKLY:
                                     simpleDateFormat.setTime(simpleDateFormat.getTime() + Constants.MILLISECONDS_IN_ONE_WEEK);
                                     break;
-                                case Constants.COURSE_FREQ_EVEN :
+                                case Constants.COURSE_FREQ_EVEN:
                                 case Constants.COURSE_FREQ_ODD:
                                     simpleDateFormat.setTime(simpleDateFormat.getTime() + Constants.MILLISECONDS_IN_TWO_WEEK);
                                     break;
@@ -139,12 +160,6 @@ public class FragmentCalendar extends Fragment {
 
             }
         });
-
-
-        compactCalendarView.setUseThreeLetterAbbreviation(true);
-        compactCalendarView.shouldDrawIndicatorsBelowSelectedDays(true);
-
-        return rootView;
     }
 
 
@@ -157,7 +172,6 @@ public class FragmentCalendar extends Fragment {
     public void onPause() {
         super.onPause();
     }
-
 
 
 }

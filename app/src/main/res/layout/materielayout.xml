@@ -1,340 +1,337 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
-    >
-<ScrollView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/numeMaterie"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/nume_materie"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/profesorTitlu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/numeMaterie"
-        android:layout_gravity="center"
-        android:text="@string/nume_profesor"
-        android:textColor="@color/colorPrimary"
-        android:textSize="15sp" />
-
-    <View
-        android:id="@+id/viewSpatiere"
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/profesorTitlu"
-        android:background="@color/colorPrimary"
-        android:padding="5dp"></View>
-
-
-    <LinearLayout
-        android:id="@+id/numeProfesorView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/viewSpatiere"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
 
         <TextView
-            android:id="@+id/numeProfesor"
-            android:layout_width="0dp"
+            android:id="@+id/numeMaterie"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/nume"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/nume_materie"
+            android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="20sp"
-
-
-            />
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/numeProfesorSetat"
-            android:layout_width="0dp"
+            android:id="@+id/profesorTitlu"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_below="@id/numeMaterie"
+            android:layout_gravity="center"
+            android:text="@string/nume_profesor"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/viewSpatiere"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/profesorTitlu"
+            android:background="@color/colorPrimary"
+            android:padding="5dp"></View>
+
+
+        <LinearLayout
+            android:id="@+id/numeProfesorView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/viewSpatiere"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/numeProfesor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/nume"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+
+
+                />
+
+            <TextView
+                android:id="@+id/numeProfesorSetat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="@string/nu_sunt_disponibile"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/birouProfesorView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/numeProfesorView"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
             android:gravity="start"
-            android:text="@string/nu_sunt_disponibile"
-            android:textAlignment="viewStart"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/birouProfesor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:text="@string/birou"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/birouProfesorSetat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="@string/nu_sunt_disponibile"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+        </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/birouProfesorView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/numeProfesorView"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="10dp"
-        android:gravity="start"
-        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/contactProfesorView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/birouProfesorView"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/contactProfesor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:text="@string/adresa_email"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/contactProfesorSetat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/nu_sunt_disponibile"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+
+                />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/birouProfesor"
-            android:layout_width="0dp"
+            android:id="@+id/materieTitlu"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/contactProfesorView"
             android:layout_gravity="center"
-            android:layout_weight="0.5"
-            android:text="@string/birou"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/birouProfesorSetat"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="start"
-            android:text="@string/nu_sunt_disponibile"
-            android:textAlignment="viewStart"
+            android:layout_marginTop="16dp"
+            android:text="@string/detalii_materie"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:textSize="15sp" />
 
-    <LinearLayout
-        android:id="@+id/contactProfesorView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/birouProfesorView"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="10dp"
-        android:orientation="horizontal">
+        <View
+            android:id="@+id/viewSpatiere2"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/materieTitlu"
+            android:background="@color/colorPrimary"
+            android:padding="5dp"></View>
 
-        <TextView
-            android:id="@+id/contactProfesor"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/crediteleVietii"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.5"
-            android:text="@string/adresa_email"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:layout_below="@id/viewSpatiere2"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/contactProfesorSetat"
-            android:layout_width="0dp"
+            <TextView
+                android:id="@+id/numarCredite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:text="@string/numar_credite"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/numarCrediteSetat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/nu_sunt_disponibile"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/punctajCursView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/nu_sunt_disponibile"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:layout_below="@id/crediteleVietii"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
 
-            />
-    </LinearLayout>
+            >
 
-    <TextView
-        android:id="@+id/materieTitlu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/contactProfesorView"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:text="@string/detalii_materie"
-        android:textColor="@color/colorPrimary"
-        android:textSize="15sp" />
+            <TextView
+                android:id="@+id/punctajCurs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:text="@string/punctaj_curs"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
-    <View
-        android:id="@+id/viewSpatiere2"
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/materieTitlu"
-        android:background="@color/colorPrimary"
-        android:padding="5dp"></View>
+            <TextView
+                android:id="@+id/punctajCursSetat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/nu_sunt_disponibile"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
 
-    <LinearLayout
-        android:id="@+id/crediteleVietii"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/viewSpatiere2"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+                />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/numarCredite"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/punctajLaboratorView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.5"
-            android:text="@string/numar_credite"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:layout_below="@id/punctajCursView"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/numarCrediteSetat"
-            android:layout_width="0dp"
+            <TextView
+                android:id="@+id/punctajLaborator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:text="@string/punctaj_laborator"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/punctajLaboratorSetat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/nu_sunt_disponibile"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/punctajProiectView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/nu_sunt_disponibile"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:layout_below="@id/punctajLaboratorView"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-    <LinearLayout
-        android:id="@+id/punctajCursView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/crediteleVietii"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:orientation="horizontal"
+            <TextView
+                android:id="@+id/punctajProiect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:text="@string/punctaj_proiect"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
-        >
+            <TextView
+                android:id="@+id/punctajProiectSetat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/nu_sunt_disponibile"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/punctajCurs"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/punctajSeminarView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.5"
-            android:text="@string/punctaj_curs"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:layout_below="@id/punctajProiectView"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/punctajCursSetat"
-            android:layout_width="0dp"
+            <TextView
+                android:id="@+id/punctajSeminar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:text="@string/punctaj_seminar"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/punctajSeminarSetat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/nu_sunt_disponibile"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/nu_sunt_disponibile"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/punctajLaboratorView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/punctajCursView"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/punctajLaborator"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.5"
-            android:text="@string/punctaj_laborator"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/punctajLaboratorSetat"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/nu_sunt_disponibile"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/punctajProiectView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/punctajLaboratorView"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/punctajProiect"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.5"
-            android:text="@string/punctaj_proiect"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/punctajProiectSetat"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/nu_sunt_disponibile"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/punctajSeminarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/punctajProiectView"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/punctajSeminar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.5"
-            android:text="@string/punctaj_seminar"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/punctajSeminarSetat"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/nu_sunt_disponibile"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/next_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/punctajSeminarView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/rounded_primary_color_background"
-        android:onClick="composeEmail"
-        android:padding="10dp"
-        android:text="@string/contact"
-        android:textColor="@color/white" />
+            android:layout_below="@id/punctajSeminarView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rounded_primary_color_background"
+            android:onClick="composeEmail"
+            android:padding="10dp"
+            android:text="@string/contact"
+            android:textColor="@color/white" />
     </RelativeLayout>
 
 </ScrollView>
-</RelativeLayout>

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
@@ -28,88 +30,56 @@ import static android.content.Context.MODE_PRIVATE;
  * Created by horiaacalin on 12/03/2017.
  */
 
-public class FragmentSetari extends android.support.v4.app.Fragment{
+public class FragmentSetari extends android.support.v4.app.Fragment implements View.OnClickListener {
 
-    private static final String ARG_PARAM1 = "param1";
-    private String mParam1;
-    Button   mButton;
-    EditText mEdit;
+    private TextView resetareParola,termeniSiConditii,logOut,greetingsTextview;
+    private Button contactButton;
+
 
     public FragmentSetari(){
 
 
     }
 
-    public static FragmentSetari newInstance(String param1) {
+    public static FragmentSetari newInstance() {
         FragmentSetari fragment = new FragmentSetari();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-
-
-        }
-
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView=inflater.inflate(R.layout.fragment_setari, container, false);
+        contactButton= (Button) rootView.findViewById(R.id.butonContactEchipa);
+        resetareParola= (TextView) rootView.findViewById(R.id.resetareParolaTextView);
+        termeniSiConditii= (TextView) rootView.findViewById(R.id.termeniSiConditiiTextView);
+        logOut= (TextView) rootView.findViewById(R.id.butonLogOut);
+        greetingsTextview= (TextView) rootView.findViewById(R.id.greetingsTextView);
+        greetingsTextview.setText(String.format(getActivity().getString(R.string.setari_hello),ToolsManager.getInstance().getUser(getActivity().getApplicationContext()).getUsername()));
 
-
-        mButton = (Button)rootView.findViewById(R.id.button);
-        mEdit   = (EditText)rootView.findViewById(R.id.numeUserIntrodus);
-
-
-        mButton.setOnClickListener(
-                new View.OnClickListener()
-                {
-                    public void onClick(View view)
-                    {
-                        Log.v("Nume user", mEdit.getText().toString());
-                    }
-                });
-        Button button = (Button) rootView.findViewById(R.id.butonContactEchipa);
-
-        button.setOnClickListener(
-                new View.OnClickListener()
-                {
-                    public void onClick(View view)
-                    {
-                        mailEchipa();
-                    }
-                });
-
-        Button buttonLogout = (Button) rootView.findViewById(R.id.butonLogOut);
-
-        buttonLogout.setOnClickListener(
-                new View.OnClickListener()
-                {
-                    public void onClick(View view)
-                    {
-
-                        getActivity().getApplicationContext().getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE).edit().putBoolean(Constants.SHARED_PREF_LOGIN,false).commit();
-                        Intent intent = new Intent(getActivity(), LoginActivity.class);
-                        getActivity().finishAffinity();
-                        startActivity(intent);
-                        Log.e("Delogare:", "s-a incercat delogarea");
-                    }
-                });
-
-
+        resetareParola.setOnClickListener(this);
+        contactButton.setOnClickListener(this);
+        logOut.setOnClickListener(this);
+        termeniSiConditii.setOnClickListener(this);
         return rootView;
     }
 
+    private void logOut() {
+        getActivity().getApplicationContext().getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE).edit().putBoolean(Constants.SHARED_PREF_LOGIN,false).commit();
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            getActivity().finishAffinity();
+        }else{
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        }
+        startActivity(intent);
+    }
 
 
     public void mailEchipa() {
@@ -124,4 +94,19 @@ public class FragmentSetari extends android.support.v4.app.Fragment{
 
     }
 
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.butonLogOut:
+                logOut();
+                break;
+
+            case R.id.butonContactEchipa:
+                mailEchipa();
+                break;
+
+        }
+
+    }
 }

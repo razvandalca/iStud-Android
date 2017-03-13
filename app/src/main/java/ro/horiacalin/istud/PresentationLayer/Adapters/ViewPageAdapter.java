@@ -32,7 +32,7 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
                 return FragmentNote.newInstance("Fragment 2");
 
             case 2:
-                return FragmentSetari.newInstance("Fragment 3");
+                return FragmentSetari.newInstance();
 
             default:
                 return null;

@@ -5,19 +5,19 @@ package ro.horiacalin.istud.BusinessLayer.Pojo;
  */
 
 public class Grade {
-    private  double value;
+    private  String value;
     private  int activity;
 
-    public Grade(double value, int activity) {
+    public Grade(String value, int activity) {
         this.value = value;
         this.activity = activity;
     }
 
-    public double getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(String value) {
         this.value = value;
     }
 

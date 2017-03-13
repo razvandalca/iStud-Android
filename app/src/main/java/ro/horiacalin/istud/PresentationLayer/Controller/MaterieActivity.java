@@ -127,18 +127,16 @@ public class MaterieActivity extends AppCompatActivity {
                 switch (g.getActivity()) {
                     case Constants.GRADE_TYPE_COURSE:
 
-                        punctajCurs.setText(Double.toString(g.getValue()));
+                        punctajCurs.setText(g.getValue());
                         break;
                     case Constants.GRADE_TYPE_LAB:
-                        punctajLab.setText(Double.toString(g.getValue()));
+                        punctajLab.setText(g.getValue());
                         break;
                     case Constants.GRADE_TYPE_PROJECT:
-                        //// TODO: 10.03.2017 ADD IN XML THE VIEW
-                        punctajProiect.setText(Double.toString(g.getValue()));
+                        punctajProiect.setText(g.getValue());
                         break;
                     case Constants.GRADE_TYPE_SEMINAR:
-                        punctajSeminar.setText(Double.toString(g.getValue()));
-                        //// TODO: 10.03.2017 ADD IN XML THE VIEW
+                        punctajSeminar.setText(g.getValue());
 
                         break;
 

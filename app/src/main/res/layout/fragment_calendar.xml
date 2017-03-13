@@ -2,81 +2,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context="ro.horiacalin.istud.PresentationLayer.Controller.FragmentCalendar">
 
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <LinearLayout
-        android:id="@+id/linearLayoutBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:background="@color/white">
+        android:layout_height="wrap_content">
 
-        <ImageButton
-            android:id="@+id/calendarBackButton"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
+        <LinearLayout
+            android:id="@+id/linearLayoutBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/white"
-            android:src="@drawable/ic_back"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:visibility="invisible"/>
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-        <TextView
-            android:id="@+id/calendarMonthTextView"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="match_parent"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            android:text="Placeholder"
-            android:textAlignment="center"
-            />
+            <ImageButton
+                android:id="@+id/calendarBackButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:src="@drawable/ic_back"
+                android:visibility="invisible" />
 
-        <ImageButton
-            android:id="@+id/calendarForwardButton"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            <TextView
+                android:id="@+id/calendarMonthTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:text="Placeholder"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/calendarForwardButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:src="@drawable/ic_forward"
+                android:visibility="invisible" />
+
+
+        </LinearLayout>
+
+        <com.github.sundeepk.compactcalendarview.CompactCalendarView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/calendarView"
+            android:layout_width="fill_parent"
+            android:layout_height="250dp"
+            android:layout_below="@+id/linearLayoutBar"
+            app:compactCalendarBackgroundColor="@color/white"
+            app:compactCalendarCurrentDayBackgroundColor="#B71C1C"
+            app:compactCalendarCurrentDayIndicatorStyle="fill_large_indicator"
+            app:compactCalendarCurrentSelectedDayBackgroundColor="#ffbd5f5f"
+            app:compactCalendarEventIndicatorStyle="small_indicator"
+            app:compactCalendarMultiEventIndicatorColor="@color/green"
+            app:compactCalendarOtherMonthDaysTextColor="#534c4c"
+            app:compactCalendarShouldSelectFirstDayOfMonthOnScroll="true"
+            app:compactCalendarTargetHeight="250dp"
+            app:compactCalendarTextColor="@color/red"
+            app:compactCalendarTextSize="12sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/eventsRecyclerView"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_forward"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/calendarView"
             android:background="@color/white"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:visibility="invisible"/>
+            android:nestedScrollingEnabled="false"></android.support.v7.widget.RecyclerView>
 
-
-    </LinearLayout>
-    <com.github.sundeepk.compactcalendarview.CompactCalendarView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/calendarView"
-        android:layout_below="@+id/linearLayoutBar"
-        android:layout_width="fill_parent"
-        android:layout_height="250dp"
-        app:compactCalendarTargetHeight="250dp"
-        app:compactCalendarTextSize="12sp"
-        app:compactCalendarBackgroundColor="@color/white"
-        app:compactCalendarTextColor="@color/red"
-        app:compactCalendarCurrentSelectedDayBackgroundColor="#ffbd5f5f"
-        app:compactCalendarCurrentDayBackgroundColor="#B71C1C"
-        app:compactCalendarCurrentDayIndicatorStyle="fill_large_indicator"
-        app:compactCalendarEventIndicatorStyle="small_indicator"
-        app:compactCalendarOtherMonthDaysTextColor="#534c4c"
-        app:compactCalendarShouldSelectFirstDayOfMonthOnScroll="true"
-        app:compactCalendarMultiEventIndicatorColor="@color/green"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/eventsRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/calendarView"
-        android:background="@color/white"
-        android:nestedScrollingEnabled="false">
-    </android.support.v7.widget.RecyclerView>
-
-</RelativeLayout>
+    </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>

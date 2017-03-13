@@ -31,9 +31,6 @@ public class iStudyFirbaseMessagingService extends FirebaseMessagingService {
         mBuilder.setDefaults(Notification.DEFAULT_VIBRATE);
         mBuilder.setColor(Color.RED);
         mBuilder.setSmallIcon(R.mipmap.ic_launcher);
-
-
-
         // Check if message contains a notification payload.
 //        if (remoteMessage.getNotification() != null) {
 //            mBuilder.setContentText(remoteMessage.getNotification().getBody());

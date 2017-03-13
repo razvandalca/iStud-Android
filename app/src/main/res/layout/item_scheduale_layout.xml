@@ -10,56 +10,96 @@
     android:padding="10dp"
     android:translationZ="1dp">
 
-
+<LinearLayout
+    android:id="@+id/titleLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <TextView
         android:id="@+id/materieTitlu"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textAlignment="center"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:text="MATERIE PLACEHOLDER"
-        android:textAlignment="center"
+        android:ellipsize="end"
         android:textSize="25sp" />
 
+    <TextView
+        android:id="@+id/tipMaterie"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        android:layout_height="match_parent"
+        android:textSize="25sp"
+        android:ellipsize="end"
+        android:layout_below="@+id/materieTitlu"/>
+</LinearLayout>
+
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/titleLayout"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dp">
 
     <LinearLayout
         android:id="@+id/oraLayout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_below="@id/materieTitlu"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:textAlignment="center"
             android:layout_height="wrap_content"
             android:text="Ora:"
             android:textSize="18dp" />
 
         <TextView
             android:id="@+id/oraTextview"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical|start"
+            android:textAlignment="viewStart" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/birouLayout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:layout_below="@id/oraLayout"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1.7"
+            android:layout_gravity="right"
+            android:textAlignment="viewEnd"
             android:layout_height="wrap_content"
             android:text="Locatie:"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/biruTextview"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:layout_gravity="center_vertical"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"/>
     </LinearLayout>
 
+</LinearLayout>
 
 </RelativeLayout>

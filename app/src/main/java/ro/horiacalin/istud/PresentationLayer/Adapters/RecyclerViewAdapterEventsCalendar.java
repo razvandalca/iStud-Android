@@ -73,6 +73,21 @@ public class RecyclerViewAdapterEventsCalendar extends RecyclerView.Adapter<Recy
             }
         });
 
+        switch (((Scheduale) mDataset.get(position).getData()).getType()){
+            case Constants.SCH_TYPE_COURES:
+                holder.tipMaterie.setText(R.string.generic_curs);
+                break;
+            case Constants.SCH_TYPE_LAB:
+                holder.tipMaterie.setText(R.string.generic_laborator);
+                break;
+            case Constants.SCH_TYPE_PROJ:
+                holder.tipMaterie.setText(R.string.generic_proiect);
+                break;
+            case Constants.SCH_TYPE_SEMINAR:
+                holder.tipMaterie.setText(R.string.generic_seminar);
+                break;
+        }
+
 
     }
 
@@ -90,7 +105,7 @@ public class RecyclerViewAdapterEventsCalendar extends RecyclerView.Adapter<Recy
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView materieTitluTextView,oraTextview,birouTextView;
+        public TextView materieTitluTextView,oraTextview,birouTextView,tipMaterie;
         public View root;
 
         public ViewHolder(View v) {
@@ -98,6 +113,7 @@ public class RecyclerViewAdapterEventsCalendar extends RecyclerView.Adapter<Recy
             materieTitluTextView = (TextView) v.findViewById(R.id.materieTitlu);
             oraTextview = (TextView) v.findViewById(R.id.oraTextview);
             birouTextView = (TextView) v.findViewById(R.id.biruTextview);
+            tipMaterie = (TextView) v.findViewById(R.id.tipMaterie);
             root = v;
         }
     }
