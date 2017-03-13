@@ -67,6 +67,7 @@ public class RecyclerViewAdapterEventsCalendar extends RecyclerView.Adapter<Recy
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, MaterieActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra(Constants.MATERIE_KEY,new Materie(scheduale.getId()));
                 context.startActivity(intent);
             }
