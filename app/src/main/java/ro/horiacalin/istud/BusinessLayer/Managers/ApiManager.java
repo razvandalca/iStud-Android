@@ -104,7 +104,7 @@ public class ApiManager {
             public void onResponse(Call call, Response response) {
                 switch (response.code()) {
                     case 200:
-                        Log.e(TAG, "onResponse: TOKEN OK ");
+                        Log.e(TAG, "onResponse: TOKEN OK "+token);
                         user.setToken(token);
                         break;
                     case 404:

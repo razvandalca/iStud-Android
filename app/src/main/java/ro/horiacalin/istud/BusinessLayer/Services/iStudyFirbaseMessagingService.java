@@ -12,6 +12,8 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import ro.horiacalin.istud.R;
+
 /**
  * Created by Razvan'S PC on 05.03.2017.
  */
@@ -28,13 +30,14 @@ public class iStudyFirbaseMessagingService extends FirebaseMessagingService {
         mBuilder.setSound(uri);
         mBuilder.setDefaults(Notification.DEFAULT_VIBRATE);
         mBuilder.setColor(Color.RED);
+        mBuilder.setSmallIcon(R.mipmap.ic_launcher);
 
 
 
         // Check if message contains a notification payload.
-        if (remoteMessage.getNotification() != null) {
-            mBuilder.setContentText(remoteMessage.getNotification().getBody());
-        }
+//        if (remoteMessage.getNotification() != null) {
+//            mBuilder.setContentText(remoteMessage.getNotification().getBody());
+//        }
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0, mBuilder.build());
