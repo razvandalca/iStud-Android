@@ -85,7 +85,7 @@ public class FragmentSetari extends android.support.v4.app.Fragment implements V
     public void mailEchipa() {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_EMAIL, "office@istudy.ro");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[] {"office@istudy.ro"});
         intent.putExtra(Intent.EXTRA_SUBJECT, "Problema aplicatie iStudy");
         intent.putExtra(Intent.EXTRA_TEXT, " ");
         if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
@@ -105,6 +105,11 @@ public class FragmentSetari extends android.support.v4.app.Fragment implements V
             case R.id.butonContactEchipa:
                 mailEchipa();
                 break;
+
+
+            case R.id.resetareParolaTextView:
+                Intent resetareParolaIntent= new Intent(getActivity(),ResetareParolaActivity.class);
+                startActivity(resetareParolaIntent);
 
         }
 

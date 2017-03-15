@@ -19,17 +19,17 @@
     <string name="numar_credite">Numar\ncredite</string>
     <string name="punctaj_curs">Punctaj\ncurs</string>
     <string name="punctaj_proiect">Punctaj\nproiect</string>
-    <string name = "punctaj_laborator">Punctaj\nlaborator</string>
-    <string name = "punctaj_seminar">Punctaj\nseminar</string>
-    <string name = "contact">Contact</string>
-    <string name = "birou">Birou</string>
+    <string name="punctaj_laborator">Punctaj\nlaborator</string>
+    <string name="punctaj_seminar">Punctaj\nseminar</string>
+    <string name="contact">Contact</string>
+    <string name="birou">Birou</string>
     <string name="nume">Nume</string>
     <string name="adresa_email">E-mail</string>
     <string name="detalii_materie">Detalii materie</string>
     <string name="buton_contact">Ai uitat userul sau parola?</string>
     <string name="nume_utilizator">Introduceti numele</string>
     <string name="actualizeaza">Actualizeaza</string>
-    <string name = "log_out">Log out</string>
+    <string name="log_out">Log out</string>
     <string name="contactEchipa">Pentru orice fel de probleme cu aplicatia sau nelamuriri, ne puteti contacta la adresa: office@istudy.ro"</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -41,7 +41,7 @@
     <string name="alert_dialog_positive_button">OK</string>
     <string name="login_error_fatal">Ceva n-a mers tocmai cum trebuie</string>
     <string name="materie_detalii_progress_dialog_title">Descarcam informatiile</string>
-    <string name="materie_detalii_progress_dialog_message">Se obtin informatiile pentru materie\nTe rugam sa astepti</string>
+    <string name="materie_detalii_progress_dialog_message">Se obtin informatiile pentru materie!\nTe rugam sa astepti!</string>
     <string name="nu_sunt_disponibile">Informatii indisponibile</string>
 
 
@@ -51,5 +51,16 @@
     <string name="generic_laborator">Laborator</string>
     <string name="generic_proiect">Proiect</string>
     <string name="generic_seminar">Seminar</string>
+    <string name="title_activity_resetare_parola">ResetareParolaActivity</string>
+    <string name="err_camp_obligatoriu">Camp obligatoriu!</string>
+    <string name="err_pass_to_short">Parola trebuie sa aiba minim 6 caractere!</string>
+    <string name="err_pass_no_numbers">Parola trebuie sa contina minim o cifra!</string>
+    <string name="confirma_parola_noua">Confirma parola noua:</string>
+    <string name="parola_noua">Parola noua:</string>
+    <string name="parola_curenta">Parola curenta:</string>
+    <string name="resetrae_pass_ok_200">Resetare parola finalizata cu succes!</string>
+    <string name="reset_user_nu_exista_404">Userul nu exista!</string>
+    <string name="parola_curenta_not_ok_403">Parola curenta nu este buna!</string>
+    <string name="pass_err_parola_noua_aceeas_parola_curenta">Parola noua nu poate fi identica cu cea curenta!</string>
 
 </resources>

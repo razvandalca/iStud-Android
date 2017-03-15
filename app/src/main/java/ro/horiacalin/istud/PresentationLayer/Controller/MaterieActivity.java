@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -52,6 +53,7 @@ public class MaterieActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        setTitle("Detalii Materie");
 
         numeProfesor = (TextView) findViewById(R.id.numeProfesorSetat);
         birouProf = (TextView) findViewById(R.id.birouProfesorSetat);
@@ -78,7 +80,15 @@ public class MaterieActivity extends AppCompatActivity {
                 if (materie != null) {
                     ApiManager.getInstance().getCourseDetails(ToolsManager.getInstance().getUser(getApplicationContext()).getId(),materie.getId(),getApplicationContext(), new CallbackDefaultNetwork() {
                         @Override
-                        public void success(Object object) {
+                        public void success(final Object object) {
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    progressDialog.dismiss();
+                                    materie= (Materie) object;
+                                    populateAvticity();
+                                }
+                            }, Constants.SPLASH_TIME_OUT);
                             progressDialog.dismiss();
                             materie= (Materie) object;
                             populateAvticity();
@@ -149,7 +159,7 @@ public class MaterieActivity extends AppCompatActivity {
     public void composeEmail( View v) {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_EMAIL, materie.getEmail());
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[] {materie.getEmail()});
         intent.putExtra(Intent.EXTRA_SUBJECT, materie.getCourse_name()+" "+ ToolsManager.getInstance().getUser(getApplicationContext()).getName());
         intent.putExtra(Intent.EXTRA_TEXT, "");
         if (intent.resolveActivity(getPackageManager()) != null) {

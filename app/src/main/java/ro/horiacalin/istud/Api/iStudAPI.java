@@ -38,6 +38,13 @@ public interface iStudAPI  {
     Call<Void> sendTokenToServer(@Field("userid") int userID,@Field("token") String token);
 
 
+    @FormUrlEncoded
+    @POST("user/reset_pass")
+    Call<Void> resetPassword(@Field("userid") int userID,@Field("new_pass") String newPass,@Field("old_pass") String oldPass);
+
+
+
+
 
 
 }

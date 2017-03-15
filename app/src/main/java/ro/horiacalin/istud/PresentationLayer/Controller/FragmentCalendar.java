@@ -33,7 +33,6 @@ import ro.horiacalin.istud.R;
 
 public class FragmentCalendar extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
     private CompactCalendarView compactCalendarView;
     private RecyclerView eventsRecyclerView;
     private ImageButton calendarBackButton, calendarForwardButton;
@@ -47,11 +46,8 @@ public class FragmentCalendar extends Fragment {
     }
 
 
-    public static FragmentCalendar newInstance(String param1) {
+    public static FragmentCalendar newInstance() {
         FragmentCalendar fragment = new FragmentCalendar();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        fragment.setArguments(args);
         return fragment;
     }
 

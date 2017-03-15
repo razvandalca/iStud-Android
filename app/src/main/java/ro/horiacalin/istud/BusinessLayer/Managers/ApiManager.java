@@ -27,7 +27,7 @@ import ro.horiacalin.istud.R;
  */
 
 public class ApiManager {
-    private final String TAG="API";
+    private final String TAG = "API";
     private static ApiManager INSTANCE;
     private Retrofit retrofit;
     private iStudAPI service;
@@ -44,7 +44,7 @@ public class ApiManager {
         return INSTANCE;
     }
 
-    public void init(){
+    public void init() {
 
         final OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .readTimeout(5, TimeUnit.MINUTES)
@@ -57,7 +57,7 @@ public class ApiManager {
                 .client(okHttpClient)
                 .build();
 
-         service = retrofit.create(iStudAPI.class);
+        service = retrofit.create(iStudAPI.class);
     }
 
 
@@ -76,7 +76,7 @@ public class ApiManager {
                         response.body();
                         User u = (User) response.body();
                         callbackDefaultNetwork.success(u);
-                        sendTokenToServer(u, FirebaseInstanceId.getInstance().getToken(),callbackDefaultNetwork);
+                        sendTokenToServer(u, FirebaseInstanceId.getInstance().getToken(), callbackDefaultNetwork);
                         break;
                     case 404:
                         callbackDefaultNetwork.fail(context.getString(R.string.login_error_404));
@@ -104,7 +104,7 @@ public class ApiManager {
             public void onResponse(Call call, Response response) {
                 switch (response.code()) {
                     case 200:
-                        Log.e(TAG, "onResponse: TOKEN OK "+token);
+                        Log.e(TAG, "onResponse: TOKEN OK " + token);
                         user.setToken(token);
                         break;
                     case 404:
@@ -124,9 +124,38 @@ public class ApiManager {
         });
     }
 
+    public void resetPassword(final User user, final String oldPass, String newPass, final Context context, final CallbackDefaultNetwork callbackDefaultNetwork) {
 
-    public void getCourses(int userID, final Context context, final CallbackDefaultNetwork callbackDefaultNetwork){
-        Call call =service.getCourses(userID);
+
+        Call call = service.resetPassword(user.getId(), newPass, oldPass);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                switch (response.code()) {
+                    case 200:
+                        Log.e(TAG, "Password Changed Success");
+                        callbackDefaultNetwork.success(context.getString(R.string.resetrae_pass_ok_200));
+                        break;
+                    case 404:
+                        callbackDefaultNetwork.fail(context.getString(R.string.reset_user_nu_exista_404));
+                        break;
+                    case 403:
+                        callbackDefaultNetwork.fail(context.getString(R.string.parola_curenta_not_ok_403));
+                        break;
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
+            }
+        });
+    }
+
+
+    public void getCourses(int userID, final Context context, final CallbackDefaultNetwork callbackDefaultNetwork) {
+        Call call = service.getCourses(userID);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -148,8 +177,8 @@ public class ApiManager {
         });
     }
 
-    public void getCourseDetails(int userID,int courseID, final Context context, final CallbackDefaultNetwork callbackDefaultNetwork){
-        Call call =service.getCourseDetails(userID,courseID);
+    public void getCourseDetails(int userID, int courseID, final Context context, final CallbackDefaultNetwork callbackDefaultNetwork) {
+        Call call = service.getCourseDetails(userID, courseID);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -171,8 +200,8 @@ public class ApiManager {
         });
     }
 
-    public void getScheduale (int userID, final Context context, final CallbackDefaultNetwork callbackDefaultNetwork){
-        Call call =service.getScheduale(userID);
+    public void getScheduale(int userID, final Context context, final CallbackDefaultNetwork callbackDefaultNetwork) {
+        Call call = service.getScheduale(userID);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -182,8 +211,8 @@ public class ApiManager {
                         List<Scheduale> u = (List<Scheduale>) response.body();
                         callbackDefaultNetwork.success(u);
                         break;
-                default:
-                    callbackDefaultNetwork.fail("Error");
+                    default:
+                        callbackDefaultNetwork.fail("Error");
                 }
             }
 

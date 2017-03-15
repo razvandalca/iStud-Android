@@ -331,7 +331,8 @@
             android:onClick="composeEmail"
             android:padding="10dp"
             android:text="@string/contact"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:layout_marginBottom="10dp"/>
     </RelativeLayout>
 
 </ScrollView>

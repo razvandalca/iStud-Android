@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/rounded_corner"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:translationZ="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_event_notif"
+
+            />
+
+
+        <TextView
+            android:id="@+id/notifTitlu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:ellipsize="end"
+            android:text="MATERIE PLACEHOLDER"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/notifMesaj"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="MATERIE PLACEHOLDER"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        android:padding="10dp"/>
+
+
+
+
+</LinearLayout>

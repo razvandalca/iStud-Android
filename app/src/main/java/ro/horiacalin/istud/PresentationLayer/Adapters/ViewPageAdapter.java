@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import java.util.List;
+
 import ro.horiacalin.istud.PresentationLayer.Controller.FragmentCalendar;
 import ro.horiacalin.istud.PresentationLayer.Controller.FragmentNote;
 import ro.horiacalin.istud.PresentationLayer.Controller.FragmentSetari;
@@ -13,36 +15,24 @@ import ro.horiacalin.istud.PresentationLayer.Controller.FragmentSetari;
  */
 
 public class ViewPageAdapter extends FragmentPagerAdapter {
+    private List<Fragment> fragments;
+    private FragmentManager fragmentManager;
 
-    int numarFragmente = 3;
-
-    public ViewPageAdapter(FragmentManager fm, int numarFragmente) {
+    public ViewPageAdapter(FragmentManager fm, List<Fragment> fragmentList) {
         super(fm);
-        this.numarFragmente = numarFragmente;
+        this.fragmentManager=fm;
+        this.fragments=fragmentList;
     }
 
     @Override
     public Fragment getItem(int position) {
 
-        switch(position){
-            case 0:
-                return FragmentCalendar.newInstance("Fragment 1");
-
-            case 1:
-                return FragmentNote.newInstance("Fragment 2");
-
-            case 2:
-                return FragmentSetari.newInstance();
-
-            default:
-                return null;
-
-        }
+        return fragments.get(position);
 
     }
 
     @Override
     public int getCount() {
-        return numarFragmente;
+        return fragments.size();
     }
 }

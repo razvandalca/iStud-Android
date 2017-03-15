@@ -3,11 +3,13 @@ package ro.horiacalin.istud.PresentationLayer.Controller;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import devlight.io.library.ntb.NavigationTabBar;
 import ro.horiacalin.istud.PresentationLayer.Adapters.ViewPageAdapter;
@@ -19,9 +21,9 @@ import ro.horiacalin.istud.R;
 
 public class EcranPrincipalActivity extends AppCompatActivity {
 
-    public ViewPager viewPager;
-    public ViewPageAdapter viewPageAdapter;
-    public final int numarFragmente = 3;
+    private ViewPager viewPager;
+    private ViewPageAdapter viewPageAdapter;
+    private List<Fragment>  fragmentList=new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,8 +33,14 @@ public class EcranPrincipalActivity extends AppCompatActivity {
 
         setContentView(R.layout.ecran_principal);
 
+
         viewPager = (ViewPager) findViewById(R.id.pager);
-        viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager(), numarFragmente);
+        fragmentList.clear();
+        fragmentList.add(FragmentCalendar.newInstance());
+        fragmentList.add(FragmentNote.newInstance());
+        fragmentList.add(FragmentNotificari.newInstance());
+        fragmentList.add(FragmentSetari.newInstance());
+        viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager(), fragmentList);
         viewPager.setAdapter(viewPageAdapter);
 
         final NavigationTabBar navigationTabBar = (NavigationTabBar) findViewById(R.id.ntb);
@@ -53,6 +61,14 @@ public class EcranPrincipalActivity extends AppCompatActivity {
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
+                        getResources().getDrawable(R.drawable.ic_notification_tab_bar),
+                        Color.TRANSPARENT
+                ).title("Notificari")
+                        .build()
+        );
+
+        models.add(
+                new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.ic_settings),
                         Color.TRANSPARENT
                 ).title("Setari")
@@ -60,7 +76,7 @@ public class EcranPrincipalActivity extends AppCompatActivity {
         );
 
         navigationTabBar.setModels(models);
-        navigationTabBar.setViewPager(viewPager, 0);
+        navigationTabBar.setViewPager(viewPager, 1);
 
         navigationTabBar.setTitleMode(NavigationTabBar.TitleMode.ACTIVE);
         navigationTabBar.setBadgeGravity(NavigationTabBar.BadgeGravity.BOTTOM);

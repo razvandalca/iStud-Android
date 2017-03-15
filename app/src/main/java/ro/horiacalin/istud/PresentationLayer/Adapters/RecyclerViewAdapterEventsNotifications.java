@@ -9,20 +9,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.github.sundeepk.compactcalendarview.domain.Event;
+
 import java.util.List;
 
+import ro.horiacalin.istud.BusinessLayer.Pojo.EventNotif;
 import ro.horiacalin.istud.BusinessLayer.Pojo.Materie;
+import ro.horiacalin.istud.BusinessLayer.Pojo.Scheduale;
 import ro.horiacalin.istud.Constants;
 import ro.horiacalin.istud.PresentationLayer.Controller.MaterieActivity;
 import ro.horiacalin.istud.R;
 
 
-public class RecyclerViewAdapterMaterii extends RecyclerView.Adapter<RecyclerViewAdapterMaterii.ViewHolder> {
-    private List<Materie> mDataset;
+public class RecyclerViewAdapterEventsNotifications extends RecyclerView.Adapter<RecyclerViewAdapterEventsNotifications.ViewHolder> {
+    private List<EventNotif> mDataset;
     private Context context;
 
 
-    public void add(int position, Materie item) {
+
+    public void add(int position, EventNotif item) {
         mDataset.add(position, item);
         notifyItemInserted(position);
     }
@@ -33,18 +38,16 @@ public class RecyclerViewAdapterMaterii extends RecyclerView.Adapter<RecyclerVie
         notifyItemRemoved(position);
     }
 
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public RecyclerViewAdapterMaterii(Context context, List<Materie> myDataset) {
+    public RecyclerViewAdapterEventsNotifications(Context context , List<EventNotif> myDataset) {
         this.mDataset = myDataset;
-        this.context = context;
+        this.context=context;
     }
 
-    // Create new views (invoked by the layout manager)
     @Override
-    public RecyclerViewAdapterMaterii.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                                    int viewType) {
+    public RecyclerViewAdapterEventsNotifications.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                                                int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_materii_layout, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_notificari_layout, parent, false);
 
         ViewHolder vh = new ViewHolder(v);
         return vh;
@@ -55,20 +58,17 @@ public class RecyclerViewAdapterMaterii extends RecyclerView.Adapter<RecyclerVie
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.materieTitluTextView.setText(mDataset.get(position).getName());
-        holder.root.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, MaterieActivity.class);
-                intent.putExtra(Constants.MATERIE_KEY, mDataset.get(position));
-                context.startActivity(intent);
-            }
-        });
+        final EventNotif eventNotif= (EventNotif) mDataset.get(position);
+        holder.notifTitluTextView.setText(eventNotif.getTitle());
+        holder.mesaotifTextViewjN.setText(eventNotif.getMessage());
+
+
+
 
 
     }
 
-    public void setmDataset(List<Materie> mDataset) {
+    public void setmDataset(List<EventNotif> mDataset) {
         this.mDataset = mDataset;
         notifyDataSetChanged();
     }
@@ -82,12 +82,13 @@ public class RecyclerViewAdapterMaterii extends RecyclerView.Adapter<RecyclerVie
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView materieTitluTextView;
+        public TextView notifTitluTextView, mesaotifTextViewjN, dataNotif;
         public View root;
 
         public ViewHolder(View v) {
             super(v);
-            materieTitluTextView = (TextView) v.findViewById(R.id.materieTitlu);
+            notifTitluTextView = (TextView) v.findViewById(R.id.notifTitlu);
+            mesaotifTextViewjN = (TextView) v.findViewById(R.id.notifMesaj);
             root = v;
         }
     }

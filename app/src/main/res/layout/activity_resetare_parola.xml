@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ro.horiacalin.istud.PresentationLayer.Controller.ResetareParolaActivity">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/parolaCurentaLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/parola_curenta"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/parolaCurentaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/parolaCurentaLabel"
+        android:imeOptions="actionNext"
+        android:inputType="textPassword"
+        android:nextFocusDown="@+id/parolaNouaEditText"
+        android:maxLines="1"
+
+        />
+
+    <TextView
+        android:id="@+id/parolaNouaLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/parola_noua"
+        android:textSize="20sp"
+        android:layout_below="@+id/parolaCurentaEditText"
+        android:layout_marginTop="20dp"
+
+        />
+    <EditText
+        android:id="@+id/parolaNouaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/parolaNouaLabel"
+        android:imeOptions="actionNext"
+        android:inputType="textPassword"
+        android:nextFocusDown="@+id/parolaConfirmaEditText"
+        android:maxLines="1"
+
+        />
+    <TextView
+        android:id="@+id/parolaConfirmaaLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/confirma_parola_noua"
+        android:textSize="20sp"
+        android:layout_below="@id/parolaNouaEditText"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:id="@+id/parolaConfirmaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/parolaConfirmaaLabel"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        />
+
+    <Button
+        android:id="@+id/schimbaPArolaButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_primary_color_background"
+        android:textColor="@color/white"
+        android:text="Reseteaza Parola"
+        android:padding="10dp"
+        android:layout_below="@id/parolaConfirmaEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"/>
+
+
+</RelativeLayout>
+
+
+
+</ScrollView>
