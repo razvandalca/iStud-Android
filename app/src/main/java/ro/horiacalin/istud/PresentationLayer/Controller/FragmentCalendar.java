@@ -98,7 +98,12 @@ public class FragmentCalendar extends Fragment {
         compactCalendarView.setSelected(true);
 
         if(eventList.size()<=0) {
-            getScheduale();
+            try {
+                getScheduale();
+            }catch (Exception e){
+                e.printStackTrace();
+                ToolsManager.getInstance().logOut(getActivity());
+            }
         }else{
             compactCalendarView.addEvents(eventList);
         }

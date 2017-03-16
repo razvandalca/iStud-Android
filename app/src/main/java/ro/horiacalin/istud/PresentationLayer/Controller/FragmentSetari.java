@@ -60,8 +60,11 @@ public class FragmentSetari extends android.support.v4.app.Fragment implements V
         termeniSiConditii= (TextView) rootView.findViewById(R.id.termeniSiConditiiTextView);
         logOut= (TextView) rootView.findViewById(R.id.butonLogOut);
         greetingsTextview= (TextView) rootView.findViewById(R.id.greetingsTextView);
-        greetingsTextview.setText(String.format(getActivity().getString(R.string.setari_hello),ToolsManager.getInstance().getUser(getActivity().getApplicationContext()).getName()));
-
+        try {
+            greetingsTextview.setText(String.format(getActivity().getString(R.string.setari_hello), ToolsManager.getInstance().getUser(getActivity().getApplicationContext()).getName()));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         resetareParola.setOnClickListener(this);
         contactButton.setOnClickListener(this);
         logOut.setOnClickListener(this);
@@ -69,18 +72,7 @@ public class FragmentSetari extends android.support.v4.app.Fragment implements V
         return rootView;
     }
 
-    private void logOut() {
-        getActivity().getApplicationContext().getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE).edit().putBoolean(Constants.SHARED_PREF_LOGIN,false).commit();
-        Intent intent = new Intent(getActivity(), LoginActivity.class);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            getActivity().finishAffinity();
-        }else{
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
-        }
-        ToolsManager.getInstance().clearNotifEvents(getActivity().getApplicationContext());
-        startActivity(intent);
-    }
 
 
     public void mailEchipa() {
@@ -100,7 +92,7 @@ public class FragmentSetari extends android.support.v4.app.Fragment implements V
 
         switch (v.getId()){
             case R.id.butonLogOut:
-                logOut();
+                ToolsManager.getInstance().logOut(getActivity());
                 break;
 
             case R.id.butonContactEchipa:

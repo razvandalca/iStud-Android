@@ -115,23 +115,27 @@ public class ResetareParolaActivity extends AppCompatActivity implements View.On
                 if (verifyConfirmPass()) {
                     ToolsManager.getInstance().hideKeyboard(this, resetPassButton);
                     progressBar.setVisibility(View.VISIBLE);
-                    ApiManager.getInstance().resetPassword(ToolsManager.getInstance().getUser(getApplicationContext())
-                            , parolaCurenta.getText().toString().trim()
-                            , parolaConfirma.getText().toString().trim()
-                            , getApplicationContext(),
-                            new CallbackDefaultNetwork() {
-                                @Override
-                                public void success(Object object) {
-                                    String message = (String) object;
-                                    showDialog("Succes!", message, null);
+                    try {
+                        ApiManager.getInstance().resetPassword(ToolsManager.getInstance().getUser(getApplicationContext())
+                                , parolaCurenta.getText().toString().trim()
+                                , parolaConfirma.getText().toString().trim()
+                                , getApplicationContext(),
+                                new CallbackDefaultNetwork() {
+                                    @Override
+                                    public void success(Object object) {
+                                        String message = (String) object;
+                                        showDialog("Succes!", message, null);
 
-                                }
+                                    }
 
-                                @Override
-                                public void fail(String message) {
-                                    showDialog("Eroare!", message, parolaCurenta);
-                                }
-                            });
+                                    @Override
+                                    public void fail(String message) {
+                                        showDialog("Eroare!", message, parolaCurenta);
+                                    }
+                                });
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                     Log.e(TAG, "onCreate: ");
 
                 }

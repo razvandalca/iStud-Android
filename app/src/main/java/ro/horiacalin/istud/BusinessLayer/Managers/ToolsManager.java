@@ -3,6 +3,7 @@ package ro.horiacalin.istud.BusinessLayer.Managers;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -72,8 +73,8 @@ public class ToolsManager {
         editor.commit();
     }
 
-    public void saveNotifEvents(EventNotif notif,Context c) {
-        SharedPreferences preferences=c.getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
+    public void saveNotifEvents(EventNotif notif, Context c) {
+        SharedPreferences preferences = c.getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         Gson gson = new Gson();
         eventNotifList.add(notif);
@@ -89,8 +90,8 @@ public class ToolsManager {
         SharedPreferences mPrefs = context.getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
         Gson gson = new Gson();
         String json = mPrefs.getString(Constants.USER_KEY, "");
-        User obj = gson.fromJson(json, User.class);
-        return obj;
+        user = gson.fromJson(json, User.class);
+        return user;
     }
 
 
@@ -104,20 +105,29 @@ public class ToolsManager {
         Type type = new TypeToken<List<EventNotif>>() {
         }.getType();
         List<EventNotif> obj = gson.fromJson(json, type);
-        eventNotifList=new ArrayList<>();
-        if(obj!=null) {
-            eventNotifList=obj;
+        eventNotifList = new ArrayList<>();
+        if (obj != null) {
+            eventNotifList = obj;
         }
         return eventNotifList;
     }
 
 
-    public void clearNotifEvents(Context c){
-        SharedPreferences preferences=c.getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
+    public void clearNotifEvents(Context c) {
+        SharedPreferences preferences = c.getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString(Constants.NOTIF_EVENTS,"");
+        editor.putString(Constants.NOTIF_EVENTS, "");
         editor.commit();
-        eventNotifList=null;
+        eventNotifList = null;
+    }
+
+    public void logOut(Context context) {
+        context.getApplicationContext().getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE).edit().putBoolean(Constants.SHARED_PREF_LOGIN, false).commit();
+        Intent intent = new Intent(context, LoginActivity.class);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        clearNotifEvents(context.getApplicationContext());
+        context.startActivity(intent);
     }
 
 
