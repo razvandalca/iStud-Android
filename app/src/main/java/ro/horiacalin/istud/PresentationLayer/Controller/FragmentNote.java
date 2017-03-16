@@ -86,29 +86,27 @@ public class FragmentNote extends android.support.v4.app.Fragment implements Sea
         searchView.setQuery("", false);
         searchView.clearFocus();
         progressBar.setVisibility(View.VISIBLE);
-try {
-    getCourses();
-}catch (Exception e){
-    ToolsManager.getInstance().logOut(getActivity());
-}
+        try {
+            getCourses();
+        } catch (Exception e) {
+            ToolsManager.getInstance().logOut(getActivity());
+        }
 
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary, R.color.color_ntb_icon_inactive, R.color.colorPrimaryDark);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 instructionLabel.setVisibility(View.GONE);
-                try{
+                try {
                     getCourses();
 
-                }catch (Exception e){
+                } catch (Exception e) {
                     ToolsManager.getInstance().logOut(getActivity());
                 }
 
 
             }
         });
-
-
 
 
         searchView.setOnCloseListener(new SearchView.OnCloseListener() {
@@ -201,4 +199,26 @@ try {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        try {
+            ToolsManager.getInstance().hideKeyboard(getActivity(), searchView);
+            searchView.clearFocus();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        try {
+            ToolsManager.getInstance().hideKeyboard(getActivity(), searchView);
+            searchView.clearFocus();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

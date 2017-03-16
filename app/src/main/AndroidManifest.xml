@@ -11,6 +11,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".PresentationLayer.Controller.LoginActivity"
@@ -21,6 +22,7 @@
             android:name=".PresentationLayer.Controller.EcranPrincipalActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".PresentationLayer.Controller.SplashScreenActivity"
             android:screenOrientation="portrait"
@@ -60,6 +62,12 @@
             android:name=".PresentationLayer.Controller.ResetareParolaActivity"
             android:label="@string/title_activity_resetare_parola"
            ></activity>
+
+
+        <activity
+            android:name=".PresentationLayer.Controller.NotificareActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

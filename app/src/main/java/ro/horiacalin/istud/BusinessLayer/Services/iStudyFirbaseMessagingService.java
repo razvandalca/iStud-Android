@@ -52,8 +52,6 @@ public class iStudyFirbaseMessagingService extends FirebaseMessagingService {
         if (eventNotif != null) {
             mBuilder.setContentTitle(eventNotif.getTitle());
             mBuilder.setContentText(eventNotif.getMessage());
-            List<EventNotif> eventNotifList = ToolsManager.getInstance().getNotifEvents(getApplicationContext());
-            eventNotifList.add(eventNotif);
             ToolsManager.getInstance().saveNotifEvents(eventNotif, getApplicationContext());
 
             Intent notificationIntent = new Intent(getApplicationContext(), NotificareActivity.class);

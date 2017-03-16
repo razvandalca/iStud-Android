@@ -50,7 +50,6 @@ public class ToolsManager {
         prefs = context.getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
         prefs.edit().putBoolean(Constants.SHARED_PREF_LOGIN, true).commit();
         saveUser(u, prefs);
-        Log.e("USER:", getUser(context).getEmail());
         this.user = u;
 
     }
@@ -77,7 +76,7 @@ public class ToolsManager {
         SharedPreferences preferences = c.getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         Gson gson = new Gson();
-        eventNotifList.add(notif);
+        getNotifEvents(c).add(notif);
         String json = gson.toJson(eventNotifList);
         editor.putString(Constants.NOTIF_EVENTS, json);
         editor.commit();

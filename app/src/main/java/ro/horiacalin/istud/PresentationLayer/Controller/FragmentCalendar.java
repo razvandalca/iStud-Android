@@ -77,7 +77,7 @@ public class FragmentCalendar extends Fragment {
 
 
         final Date firsDayCurrentMonth = compactCalendarView.getFirstDayOfCurrentMonth();
-        calendarMonthTextview.setText(DateFormat.format("MMMM", firsDayCurrentMonth));
+        calendarMonthTextview.setText(DateFormat.format("MMMM yyyy", firsDayCurrentMonth));
         compactCalendarView.setCurrentDayBackgroundColor(R.color.etti);
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
@@ -90,7 +90,7 @@ public class FragmentCalendar extends Fragment {
 
             @Override
             public void onMonthScroll(Date firstDayOfNewMonth) {
-                calendarMonthTextview.setText(DateFormat.format("MMMM", firstDayOfNewMonth));
+                calendarMonthTextview.setText(DateFormat.format("MMMM yyyy", firstDayOfNewMonth));
 
             }
         });
