@@ -18,6 +18,7 @@ import ro.horiacalin.istud.BusinessLayer.Pojo.Materie;
 import ro.horiacalin.istud.BusinessLayer.Pojo.Scheduale;
 import ro.horiacalin.istud.Constants;
 import ro.horiacalin.istud.PresentationLayer.Controller.MaterieActivity;
+import ro.horiacalin.istud.PresentationLayer.Controller.NotificareActivity;
 import ro.horiacalin.istud.R;
 
 
@@ -62,7 +63,14 @@ public class RecyclerViewAdapterEventsNotifications extends RecyclerView.Adapter
         holder.notifTitluTextView.setText(eventNotif.getTitle());
         holder.mesaotifTextViewjN.setText(eventNotif.getMessage());
 
-
+        holder.root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, NotificareActivity.class);
+                intent.putExtra(Constants.NOTIF_KEY, mDataset.get(position));
+                context.startActivity(intent);
+            }
+        });
 
 
 

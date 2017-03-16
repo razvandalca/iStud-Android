@@ -62,5 +62,6 @@
     <string name="reset_user_nu_exista_404">Userul nu exista!</string>
     <string name="parola_curenta_not_ok_403">Parola curenta nu este buna!</string>
     <string name="pass_err_parola_noua_aceeas_parola_curenta">Parola noua nu poate fi identica cu cea curenta!</string>
+    <string name="title_activity_notificare">NotificareActivity</string>
 
 </resources>

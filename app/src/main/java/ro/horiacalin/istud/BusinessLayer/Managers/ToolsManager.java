@@ -112,4 +112,13 @@ public class ToolsManager {
     }
 
 
+    public void clearNotifEvents(Context c){
+        SharedPreferences preferences=c.getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(Constants.NOTIF_EVENTS,"");
+        editor.commit();
+        eventNotifList=null;
+    }
+
+
 }

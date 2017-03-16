@@ -2,7 +2,9 @@ package ro.horiacalin.istud.BusinessLayer.Services;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -19,6 +21,8 @@ import java.util.List;
 
 import ro.horiacalin.istud.BusinessLayer.Managers.ToolsManager;
 import ro.horiacalin.istud.BusinessLayer.Pojo.EventNotif;
+import ro.horiacalin.istud.Constants;
+import ro.horiacalin.istud.PresentationLayer.Controller.NotificareActivity;
 import ro.horiacalin.istud.R;
 
 /**
@@ -52,8 +56,16 @@ public class iStudyFirbaseMessagingService extends FirebaseMessagingService {
             eventNotifList.add(eventNotif);
             ToolsManager.getInstance().saveNotifEvents(eventNotif, getApplicationContext());
 
+            Intent notificationIntent = new Intent(getApplicationContext(), NotificareActivity.class);
+            notificationIntent.putExtra(Constants.NOTIF_KEY, eventNotif);
 
+
+
+            PendingIntent contentIntent = PendingIntent.getActivity(this, Constants.requestID_NOtIF ,notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            mBuilder.setContentIntent(contentIntent);
         }
+
+
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0, mBuilder.build());
 

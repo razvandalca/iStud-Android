@@ -78,6 +78,7 @@ public class FragmentSetari extends android.support.v4.app.Fragment implements V
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         }
+        ToolsManager.getInstance().clearNotifEvents(getActivity().getApplicationContext());
         startActivity(intent);
     }
 

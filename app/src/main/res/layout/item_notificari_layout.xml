@@ -13,7 +13,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
 
         <ImageView
             android:layout_width="0dp"
@@ -24,30 +26,37 @@
             />
 
 
-        <TextView
-            android:id="@+id/notifTitlu"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:ellipsize="end"
-            android:text="MATERIE PLACEHOLDER"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20dp" />
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/notifTitlu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:text="MATERIE PLACEHOLDER"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/notifMesaj"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:padding="10dp"
+                android:text="MATERIE PLACEHOLDER"
+                android:textAlignment="center"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+
     </LinearLayout>
-
-
-    <TextView
-        android:id="@+id/notifMesaj"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="MATERIE PLACEHOLDER"
-        android:textAlignment="center"
-        android:textSize="15sp"
-        android:padding="10dp"/>
-
-
 
 
 </LinearLayout>
